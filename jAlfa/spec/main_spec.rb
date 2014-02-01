@@ -6,4 +6,9 @@ describe "Application 'jAlfa'" do
   it "has one window" do
     @app.windows.size.should == 1
   end
+
+  # it "has has 3 view controllers" do
+  #   @app.UINavigationController.should == 1
+  # end
+
 end

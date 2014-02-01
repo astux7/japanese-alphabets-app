@@ -15,7 +15,18 @@ class PaintView < UIView
   end
 
   def drawRect(rect)
-    UIColor.blackColor.set
+   # # UIColor.blueColor.set
+   #  #@images = %w{matz guido kay jmccolor}.map { |name| UIImage.imageNamed(name + '.jpg') }
+    
+   #  UIColor.colorWithPatternImage(UIImage.imageNamed("practice.png")).set
+
+   #  # xcode_image = UIImage.imageNamed("practice.png")
+   #  # @xcode_image_view1 = UIImageView.alloc.initWithImage(xcode_image)
+   #  # @xcode_image_view1.setFrame(CGRectMake(50,150,250,250))
+
+   #  # self.addSubview(@xcode_image_view1)
+   #  # self.sendSubviewToBack(@xcode_image_view1)
+
     UIBezierPath.bezierPathWithRect(rect).fill
     @paths.each do |path, color|
       color.set
@@ -26,12 +37,8 @@ class PaintView < UIView
   def touchesBegan(touches, withEvent:event)
     bp = UIBezierPath.alloc.init
     bp.lineWidth = 3.0
-    random_color = UIColor.alloc.initWithRed(0.85,green: 0.85,blue: 0.35, alpha:1.0)
-    # random_color = begin
-    #   red, green, blue = rand(100)/100.0, rand(100)/100.0, rand(100)/100.0
-    #   UIColor.alloc.initWithRed(red/100.0, green:green, blue:blue, alpha:1.0)
-    # end
-    @paths << [bp, random_color]
+    color = UIColor.alloc.initWithRed(1.0,green: 1.0,blue: 1.0, alpha:1.0)
+    @paths << [bp, color]
   end
 
   def touchesMoved(touches, withEvent:event)

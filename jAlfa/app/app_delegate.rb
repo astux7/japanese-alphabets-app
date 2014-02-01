@@ -9,10 +9,6 @@ class AppDelegate
     @window.rootViewController.wantsFullScreenLayout = true
     @window.makeKeyAndVisible
 
-    
-
-    # @window.makeKeyAndVisible
-
     # @blue_view = UIView.alloc.initWithFrame(CGRectMake(50, 50, 100, 100))
     # @blue_view.backgroundColor = UIColor.blueColor
     # @window.addSubview(@blue_view)

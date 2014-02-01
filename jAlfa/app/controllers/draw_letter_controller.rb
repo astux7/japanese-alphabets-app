@@ -2,36 +2,32 @@ class DrawLetterController < UIViewController
   def init
     if super
       self.tabBarItem = UITabBarItem.alloc.initWithTitle('Practice', image:UIImage.imageNamed('draw.png'), tag:1)
-      self.view.backgroundColor = UIColor.blueColor
-     # self.view = PaintView.alloc.init
     end
     self
   end
-  # def loadView
-  #    self.view.backgroundColor = UIColor.redColor
-  #    self.view.addSubview  = PaintView.alloc.init
-  #  end
-   def viewDidLoad
+
+  def loadView
+     self.view = PaintView.alloc.init
+  end
+
+  def viewDidLoad
     super
-    self.view = PaintView.alloc.init
+    # xcode_image = UIImage.imageNamed("practice.png")
+    # @xcode_image_view1 = UIImageView.alloc.initWithImage(xcode_image)
+    # @xcode_image_view1.setFrame(CGRectMake(50,150,250,250))
 
-  #   self.view.backgroundColor = UIColor.redColor
-
-  #   self.view.addSubview PaintView.alloc.init
+    # # self.addSubview(@xcode_image_view1)
+     
+    # view.addSubview(@xcode_image_view1)
+    # view.sendSubviewToBack(@xcode_image_view1)
+    # # = PaintView.alloc.init
   end
 
   def motionEnded(motion, withEvent:event)
     self.view.eraseContent if motion == UIEventSubtypeMotionShake
   end
-   # def loadView
-   #   self.view = PaintView.alloc.init
-   # end
 
   # def canBecomeFirstResponder
   #   true
-  # end
-
-  # def motionEnded(motion, withEvent:event)
-  #   self.view.eraseContent if motion == UIEventSubtypeMotionShake
   # end
 end
