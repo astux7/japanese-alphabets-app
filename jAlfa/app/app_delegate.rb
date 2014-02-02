@@ -4,7 +4,7 @@ class AppDelegate
     tabbar = UITabBarController.alloc.init
     tabbar.viewControllers = [GuessLetterController.alloc.init, HiraganaListController.alloc.init,DrawLetterController.alloc.init,]
     #which view of tab to launch
-    tabbar.selectedIndex = 1
+    tabbar.selectedIndex = 0
     @window.rootViewController = UINavigationController.alloc.initWithRootViewController(tabbar)
     @window.rootViewController.wantsFullScreenLayout = true
     @window.makeKeyAndVisible
