@@ -15,7 +15,7 @@ class GuessLetterController < UIViewController
     self.board_changed
   end
   def init_views
-    view.backgroundColor = UIColor.blackColor
+    view.backgroundColor = UIColor.yellowColor
     
     # view for the board
     @board_view = UIView.alloc.initWithFrame([[0, 0], [SQUARE_SIZE * 3, SQUARE_SIZE * 3]])
@@ -23,23 +23,39 @@ class GuessLetterController < UIViewController
     
     # views for the square
     @square_views = []
+
     for i in 0..2
       for j in 0..2
         square_view = UIView.alloc.initWithFrame([[j * (SQUARE_SIZE + 2), i * (SQUARE_SIZE + 2)], [SQUARE_SIZE - 4, SQUARE_SIZE - 4]])
-        square_view.layer.cornerRadius = 5.0
+        square_view.layer.cornerRadius = 25.0
+        #square_view.label = "a"
         @square_views[3*i + j] = square_view
+
         @board_view.addSubview(square_view)
       end
     end
+
+
     
     # label for game information
     @label = UILabel.alloc.initWithFrame([[0, 0], [0, 0]])
     @label.textColor = UIColor.whiteColor
     @label.font = UIFont.systemFontOfSize(30)
     @label.backgroundColor = nil
+
+    # label for game information
+    @label1 = UILabel.alloc.initWithFrame([[40, 160], [0, 0]])
+    @label1.textColor = UIColor.blueColor
+    @label1.font = UIFont.systemFontOfSize(50)
+   #  @label1.layer.cornerRadius = 25.0
+    @label1.text = "あ"
+    @label1.backgroundColor = UIColor.clearColor
+        @label1.sizeToFit
+    #   @label1.center = [60, 50]
     
     view.addSubview(@label)
     view.addSubview(@board_view)
+    view.addSubview(@label1)
   end
   # def viewDidLoad
   #   view.dataSource = view.delegate = self
