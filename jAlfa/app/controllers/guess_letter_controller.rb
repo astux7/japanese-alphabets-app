@@ -22,44 +22,53 @@ class GuessLetterController < UIViewController
   def new_game
     # initalize the game
     @quiz = Quiz.new
-    @scores = 0
+    @scores = @quiz.scores
+  end
+
+  def new_question
+    self.clear
+    self.init_views
+  end 
+
+  def clear
+    view.subviews.each {|sv| sv.removeFromSuperview}
   end
 
  def init_views
   
-    view.backgroundColor = UIColor.yellowColor
-    
-#     # view for the board
-   # @board_view = UIView.alloc.initWithFrame([[0, 0], [SQUARE_SIZE * 3, SQUARE_SIZE * 3]])
-  #  @board_view.center = view.center
-    
+    view.backgroundColor = UIColor.yellowColor    
     #super
-    @label = UILabel.alloc.initWithFrame([[0, 0], [300, 100]])
-    @label.textColor = UIColor.blueColor
-    @label.font = UIFont.systemFontOfSize(30)
-    @label.backgroundColor = UIColor.clearColor
-    @label.text  = "scores:"
-
-    view.addSubview(@label)
-
-   
+    #scores label:
+    label = UILabel.alloc.initWithFrame([[0, 0], [300, 100]])
+    label.textColor = UIColor.blueColor
+    label.font = UIFont.systemFontOfSize(30)
+    label.backgroundColor = UIColor.clearColor
+    label.text  = "Scores: "
+    view.addSubview(label)
+    #scores points label:
+    @scores_label = UILabel.alloc.initWithFrame([[200, 0], [100, 100]])
+    @scores_label.textColor = UIColor.blueColor
+    @scores_label.font = UIFont.systemFontOfSize(30)
+    @scores_label.backgroundColor = UIColor.clearColor
+    @scores_label.text  = @scores.to_s
+    view.addSubview(@scores_label)
+    #creating question buttons
     questions = @quiz.generate_question
     questions.each.with_index{|question, index|
       button = UIButton.buttonWithType UIButtonTypeRoundedRect
       button.setTitle question[:answer], forState: UIControlStateNormal
-     
       button.frame = [[20, 150], [105, 105]] if index == 0
       button.frame = [[200, 150], [105, 105]] if index == 1
       button.frame = [[20, 300], [105, 105]] if index == 2
       button.frame = [[200, 300], [105, 105]] if index == 3
       button.layer.cornerRadius = 50.0;
-      button.tag = index
+      button.tag = index #for send which was pressed
       button.backgroundColor = UIColor.whiteColor
-
-       button.addTarget(self,
+      button.addTarget(self,
                 action: "check_answer:",
                 forControlEvents: UIControlEventTouchUpInside) 
-       view.addSubview button
+      view.addSubview button
+      #adding label of question
       if question[:correct] == true
            # label for game information
         label1 = UILabel.alloc.initWithFrame([[114, 230], [100, 100]])
@@ -68,11 +77,10 @@ class GuessLetterController < UIViewController
         label1.textAlignment = NSTextAlignmentCenter;
         label1.backgroundColor = UIColor.redColor
         label1.font = UIFont.systemFontOfSize(50)
-       #  @label1.layer.cornerRadius = 25.0
         label1.text = question[:label]
        # label1.backgroundColor = UIColor.clearColor
        # label1.sizeToFit
-         view.addSubview  label1
+        view.addSubview  label1
       end
     }
   end
@@ -80,9 +88,17 @@ class GuessLetterController < UIViewController
   def check_answer(sender)
     #view_b = MyViewB.alloc.init
     # self.delegate = self
-     mm = sender.tag
-     @scores +=1
-     @label.text  = "scores: "+@scores.to_s+"--"+mm.to_s
+     button_pressed = sender.tag
+     # @scores +=1
+     # @scores_label.text  = @scores.to_s
+
+     if @quiz.game_over?(button_pressed)
+      @scores  +=1
+      self.new_question
+     else
+      @scores  -=1
+    end
+     @scores_label.text = @scores.to_s
     #self.presentViewController view_b, animated:true, completion:nil
   end
 
