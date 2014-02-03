@@ -2,17 +2,21 @@ class HiraganaListController < UITableViewController
   def init
     if super
       self.tabBarItem = UITabBarItem.alloc.initWithTitle('List', image:UIImage.imageNamed('alfa.png'), tag:1)
+
     end
     self
   end
 
   def viewDidLoad
-    view.dataSource = view.delegate = self
+    super
+    self.view.backgroundColor = UIColor.redColor
 
+    view.dataSource = view.delegate = self
   end
 
+  #for the title to the top to work
   def viewWillAppear(animated)
-    navigationController.setNavigationBarHidden(true, animated:true)
+    navigationController.setNavigationBarHidden(false, animated:false)
   end    
 
   def tableView(tableView, numberOfRowsInSection:section)

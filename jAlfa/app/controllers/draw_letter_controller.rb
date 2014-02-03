@@ -1,14 +1,19 @@
 class DrawLetterController < UIViewController
   def init
     if super
-      self.tabBarItem = UITabBarItem.alloc.initWithTitle('Practice', image:UIImage.imageNamed('draw.png'), tag:1)
+      self.tabBarItem = UITabBarItem.alloc.initWithTitle('Practice', image:UIImage.imageNamed('draw.png'), tag:2)
     end
     self
   end
 
   def loadView
      self.view = PaintView.alloc.init
+
   end
+  #for the title on the top to work!
+  def viewWillAppear(animated)
+    navigationController.setNavigationBarHidden(false, animated:false)
+  end 
 
   def viewDidLoad
     super
