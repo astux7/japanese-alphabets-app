@@ -23,12 +23,6 @@ class Quiz
     @correct_answer === chosen
   end
 
-  def move
-    #check if answer is taken
-   
-
-  end
-
   def reset
     @random_question = []
   end

@@ -23,6 +23,7 @@ class GuessLetterController < UIViewController
     # initalize the game
     @quiz = Quiz.new
     @scores = @quiz.scores
+    @buttons = []
   end
 
   def new_question
@@ -32,11 +33,17 @@ class GuessLetterController < UIViewController
 
   def clear
     view.subviews.each {|sv| sv.removeFromSuperview}
+    @buttons = []
   end
 
  def init_views
   
-    view.backgroundColor = UIColor.yellowColor    
+    view.backgroundColor = UIColor.yellowColor  
+    @alert = UIAlertView.alloc.initWithTitle("Quiz", 
+        message: "Correct answer!", 
+        delegate: nil,
+        cancelButtonTitle: "Next question",
+        otherButtonTitles: nil)  
     #super
     #scores label:
     label = UILabel.alloc.initWithFrame([[0, 0], [300, 100]])
@@ -54,6 +61,7 @@ class GuessLetterController < UIViewController
     view.addSubview(@scores_label)
     #creating question buttons
     questions = @quiz.generate_question
+    
     questions.each.with_index{|question, index|
       button = UIButton.buttonWithType UIButtonTypeRoundedRect
       button.setTitle question[:answer], forState: UIControlStateNormal
@@ -68,6 +76,7 @@ class GuessLetterController < UIViewController
                 action: "check_answer:",
                 forControlEvents: UIControlEventTouchUpInside) 
       view.addSubview button
+      @buttons.push button
       #adding label of question
       if question[:correct] == true
            # label for game information
@@ -89,14 +98,19 @@ class GuessLetterController < UIViewController
     #view_b = MyViewB.alloc.init
     # self.delegate = self
      button_pressed = sender.tag
+
      # @scores +=1
      # @scores_label.text  = @scores.to_s
 
      if @quiz.game_over?(button_pressed)
       @scores  +=1
+       
+        @alert.show
+
       self.new_question
      else
       @scores  -=1
+      @buttons[button_pressed].backgroundColor = UIColor.redColor
     end
      @scores_label.text = @scores.to_s
     #self.presentViewController view_b, animated:true, completion:nil
