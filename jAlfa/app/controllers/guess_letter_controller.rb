@@ -14,8 +14,6 @@ class GuessLetterController < UIViewController
   def viewDidLoad   
     self.new_game 
     self.init_views
-
-  #  self.board_changed
   end
 
   def new_game
@@ -37,16 +35,25 @@ class GuessLetterController < UIViewController
 
  def init_views
   
-    view.backgroundColor = UIColor.yellowColor  
+    view.backgroundColor = UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) 
     @alert = UIAlertView.alloc.initWithTitle("Quiz", 
         message: "Correct answer!", 
         delegate: nil,
         cancelButtonTitle: "Next question",
         otherButtonTitles: nil)  
     #super
+   #question
+    label1 = UILabel.alloc.initWithFrame([[110, 225], [110, 110]])
+        label1.textColor =  UIColor.whiteColor #UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) 
+        label1.layer.cornerRadius = 50.0;
+        label1.textAlignment = NSTextAlignmentCenter;
+        label1.backgroundColor = UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
+        label1.font = UIFont.systemFontOfSize(50)
+        label1.text = ""
+
     #scores label:
     label = UILabel.alloc.initWithFrame([[0, 0], [300, 100]])
-    label.textColor = UIColor.blueColor
+    label.textColor = UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
     label.font = UIFont.systemFontOfSize(30)
     label.backgroundColor = UIColor.clearColor
     label.text  = "Scores: "
@@ -64,14 +71,34 @@ class GuessLetterController < UIViewController
     questions.each.with_index{|question, index|
       button = UIButton.buttonWithType UIButtonTypeRoundedRect
       button.setTitle question[:answer], forState: UIControlStateNormal
+
       button.frame = [[20, 150], [105, 105]] if index == 0
       button.frame = [[200, 150], [105, 105]] if index == 1
       button.frame = [[20, 300], [105, 105]] if index == 2
       button.frame = [[200, 300], [105, 105]] if index == 3
       button.font =  UIFont.systemFontOfSize(50)
-      button.layer.cornerRadius = 50.0;
+      button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
+      #button.layer.cornerRadius = 50.0;
+      if index == 0 || index == 3
+         mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
+                                                         byRoundingCorners: UIRectCornerTopRight | UIRectCornerBottomLeft,
+                                                         cornerRadii:       CGSizeMake(40.0, 100.0))
+
+      else
+      mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
+                                                         byRoundingCorners: UIRectCornerTopLeft | UIRectCornerBottomRight,
+                                                         cornerRadii:       CGSizeMake(40.0, 100.0))
+      end
+      mask_layer = CAShapeLayer.layer
+      mask_layer.frame = button.bounds
+      mask_layer.path = mask_path.CGPath
+      button.layer.mask = mask_layer
+
+
+
+
       button.tag = index #for send which was pressed
-      button.backgroundColor = UIColor.whiteColor
+      button.backgroundColor = UIColor.alloc.initWithRed(0.90,green: 0.85,blue: 0.90, alpha:1.0) 
       button.addTarget(self,
                 action: "check_answer:",
                 forControlEvents: UIControlEventTouchUpInside) 
@@ -80,18 +107,13 @@ class GuessLetterController < UIViewController
       #adding label of question
       if question[:correct] == true
            # label for game information
-        label1 = UILabel.alloc.initWithFrame([[114, 230], [100, 100]])
-        label1.textColor = UIColor.blueColor
-        label1.layer.cornerRadius = 50.0;
-        label1.textAlignment = NSTextAlignmentCenter;
-        label1.backgroundColor = UIColor.redColor
-        label1.font = UIFont.systemFontOfSize(50)
         label1.text = question[:label]
        # label1.backgroundColor = UIColor.clearColor
        # label1.sizeToFit
-        view.addSubview  label1
+        
       end
     }
+    view.addSubview  label1
   end
 #open_b
   def check_answer(sender)
