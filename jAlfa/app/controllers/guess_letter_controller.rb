@@ -12,7 +12,6 @@ class GuessLetterController < UIViewController
 
 
   def viewDidLoad   
-    #super
     self.new_game 
     self.init_views
 
@@ -69,6 +68,7 @@ class GuessLetterController < UIViewController
       button.frame = [[200, 150], [105, 105]] if index == 1
       button.frame = [[20, 300], [105, 105]] if index == 2
       button.frame = [[200, 300], [105, 105]] if index == 3
+      button.font =  UIFont.systemFontOfSize(50)
       button.layer.cornerRadius = 50.0;
       button.tag = index #for send which was pressed
       button.backgroundColor = UIColor.whiteColor
