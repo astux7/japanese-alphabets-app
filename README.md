@@ -1,5 +1,5 @@
 <h1>Japanese Hiragana App for ipad/iphone</h1>
-&copyright; 2014 Asta B.
+(C) 2014 Asta B.
 
 <h4>Intro</h4>
 I spend lots time on the way with my ipad and I want to read and practive japanese.
