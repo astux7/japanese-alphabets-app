@@ -9,14 +9,13 @@ class HiraganaListController < UITableViewController
 
   def viewDidLoad
     super
-    self.view.backgroundColor = UIColor.redColor
-
+    self.tabBarController.navigationItem.title = "Hiragana App"
     view.dataSource = view.delegate = self
   end
 
   #for the title to the top to work
   def viewWillAppear(animated)
-    navigationController.setNavigationBarHidden(false, animated:false)
+    navigationController.setNavigationBarHidden(false, animated:true)
   end    
 
   def tableView(tableView, numberOfRowsInSection:section)

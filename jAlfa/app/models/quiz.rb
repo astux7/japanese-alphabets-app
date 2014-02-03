@@ -10,8 +10,7 @@ class Quiz
   attr_accessor :random_question, :scores, :correct_answer
 
   def generate_question(number = 4)
-    reset
-    @correct_answer = rand(number-1)
+    reset(number)
     random_letters = (Hiragana::All).shuffle.take(number)
     random_letters.each.with_index{|element, index|
       @random_question << {:answer => element.romaji, :correct => @correct_answer === index ? true : false, :label => element.letter, :guessed => false }
@@ -23,8 +22,9 @@ class Quiz
     @correct_answer === chosen
   end
 
-  def reset
+  def reset(number)
     @random_question = []
+    @correct_answer = rand(number-1)
   end
 
 end

@@ -1,8 +1,8 @@
 class GuessLetterController < UIViewController 
   def init
     if super
+     # self.title = 'Quiz'
       self.tabBarItem = UITabBarItem.alloc.initWithTitle('Quiz', image:UIImage.imageNamed('quiz.png'), tag:0)
-     
     end
     self
   end
@@ -11,11 +11,11 @@ class GuessLetterController < UIViewController
     super
     self.new_game 
     self.init_views
-    self.tabBarController.navigationItem.title = "title"
+    self.tabBarController.navigationItem.title = "Hiragana App"
   end
   #for the title to the top to work!
   def viewWillAppear(animated)
-    navigationController.setNavigationBarHidden(false, animated:false)
+    navigationController.setNavigationBarHidden(false, animated:true)
   end    
 
  # initalize the game
@@ -36,6 +36,7 @@ class GuessLetterController < UIViewController
   end
 
  def init_views
+
     #view.title = "Editable Tableview"
     view.backgroundColor = UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) 
     # @alert = UIAlertView.alloc.initWithTitle("Quiz", 
@@ -100,36 +101,39 @@ class GuessLetterController < UIViewController
   end
 
   def quess_label
-    @label_quess = UILabel.alloc.initWithFrame([[0, 400], [300, 100]])
+    @label_quess = UILabel.alloc.initWithFrame([[0, 445], [330, 40]])
     @label_quess.textAlignment = NSTextAlignmentCenter;
-    @label_quess.textColor = UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
+   # @label_quess.textColor = UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
+    @label_quess.textColor = UIColor.alloc.initWithRed(0.39,green: 0.29,blue: 0.48, alpha: 1.0)  
     @label_quess.font = UIFont.systemFontOfSize(30)
-    @label_quess.backgroundColor = UIColor.clearColor
+    #@label_quess.backgroundColor = UIColor.clearColor
+    @label_quess.backgroundColor =  UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)  
     @label_quess.text  = ""
     @label_quess
   end
 
   def result_label
-    label = UILabel.alloc.initWithFrame([[0, 0], [300, 100]])
+    label = UILabel.alloc.initWithFrame([[0, 70], [135, 40]])
     label.textColor = UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
     label.font = UIFont.systemFontOfSize(30)
-    label.backgroundColor = UIColor.clearColor
-    label.text  = "Scores: "
+    label.backgroundColor =  UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)  
+    label.text  = "  Scores:"
     label
   end
 
   def result_scores_label
-    @scores_label = UILabel.alloc.initWithFrame([[200, 0], [100, 100]])
-    @scores_label.textColor = UIColor.blueColor
+    @scores_label = UILabel.alloc.initWithFrame([[135, 70], [250, 40]])
+    @scores_label.textColor = UIColor.alloc.initWithRed(0.39,green: 0.29,blue: 0.48, alpha: 1.0)  
     @scores_label.font = UIFont.systemFontOfSize(30)
-    @scores_label.backgroundColor = UIColor.clearColor
+    @scores_label.backgroundColor = UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)
+    #@scores_label.backgroundColor = UIColor.clearColor
     @scores_label.text  = @scores.to_s
     @scores_label
   end
 
   def blossom_middle
     #question label -> middle one
-    label = UILabel.alloc.initWithFrame([[110, 225], [110, 110]])
+    label = UILabel.alloc.initWithFrame([[108, 225], [110, 110]])
     label.textColor =  UIColor.whiteColor 
     label.layer.cornerRadius = 50.0;
     label.textAlignment = NSTextAlignmentCenter;
@@ -153,7 +157,7 @@ class GuessLetterController < UIViewController
   #quiz incorrect answer -> removes leaf
   def incorrect_answer(button_index)
     @scores -= 1
-    @label_quess.text = "Oh incorrect!"
+    @label_quess.text = "Guess once more!"
     @buttons[button_index].removeFromSuperview
   end
 

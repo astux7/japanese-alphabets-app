@@ -7,12 +7,14 @@ class DrawLetterController < UIViewController
   end
 
   def loadView
-     self.view = PaintView.alloc.init
+    super
+    self.tabBarController.navigationItem.title = "Hiragana App"
+    self.view = PaintView.alloc.init
 
   end
   #for the title on the top to work!
   def viewWillAppear(animated)
-    navigationController.setNavigationBarHidden(false, animated:false)
+    navigationController.setNavigationBarHidden(false, animated:true)
   end 
 
   def viewDidLoad
