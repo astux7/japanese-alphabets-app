@@ -132,7 +132,8 @@ class GuessLetterController < UIViewController
       self.new_question
      else
       @scores  -=1
-      @buttons[button_pressed].backgroundColor = UIColor.redColor
+     # @buttons[button_pressed].backgroundColor = UIColor.redColor
+      @buttons[button_pressed].removeFromSuperview
     end
      @scores_label.text = @scores.to_s
     #self.presentViewController view_b, animated:true, completion:nil
