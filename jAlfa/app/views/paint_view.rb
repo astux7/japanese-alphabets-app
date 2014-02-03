@@ -1,6 +1,7 @@
 class PaintView < UIView
   def initWithFrame(rect)
     if super
+
       path = NSBundle.mainBundle.pathForResource('erase', ofType:'caf')
       url = NSURL.fileURLWithPath(path)
       error_ptr = Pointer.new(:id)
@@ -15,7 +16,7 @@ class PaintView < UIView
   end
 
   def drawRect(rect)
-   # # UIColor.blueColor.set
+    UIColor.clearColor.set
    #  #@images = %w{matz guido kay jmccolor}.map { |name| UIImage.imageNamed(name + '.jpg') }
     
    #  UIColor.colorWithPatternImage(UIImage.imageNamed("practice.png")).set

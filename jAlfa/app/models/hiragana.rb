@@ -36,45 +36,45 @@ class Hiragana
     Hiragana.new( 'す', '[す]し', "{su shi}", "Sushi",'alfa.png',"su"),
     Hiragana.new( 'せ', '[せ]んせい', "{se n se i}", "Teacher",'alfa.png',"se"),
     Hiragana.new( 'そ', '[そ]こ', "{so ko}", "Bottom",'alfa.png',"so"),
-    # #t-line
-    # Hiragana.new( 'た', '[は]い', "{ha i}", "Yes",'alfa.png'),
-    # Hiragana.new( 'ち     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'つ', '[つ]くる', "{tsu ku ru}", "Make",'alfa.png'),
-    # Hiragana.new( 'て', '[て]', "{te}", "Hand",'alfa.png'),
-    # Hiragana.new( 'と', '[と]けい', "{to ke i}", "Clock",'alfa.png'),
-    # #n-line
-    # Hiragana.new( 'な     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'に     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'ぬ     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'ね', '[ね]こ', "{ne ko}", "Cat",'alfa.png'),
-    # Hiragana.new( 'の     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # #h-line
-    # Hiragana.new( 'は     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'ひ', '[ひ]と', "{hi to}", "Person",'alfa.png'),
-    # Hiragana.new( 'ふ', '[ふ]ん', "{fu n}", "Minute",'alfa.png'),
-    # Hiragana.new( 'へ     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'ほ     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # #m-line
-    # Hiragana.new( 'ま     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'み', '[み]る', "{mi ru}", "see",'alfa.png'),
-    # Hiragana.new( 'む     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'め     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'も', '[む]ね', "{mu ne}", "Chest",'alfa.png'),
-    # #y-line
-    # Hiragana.new( 'や     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'ゆ', '[ゆ]び', "{yu bi}", "Finger",'alfa.png'),
-    # Hiragana.new( 'よ     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # #r-line
-    # Hiragana.new( 'ら     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'り     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'る     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # Hiragana.new( 'れ', '[れ]い', "{re i}", "Zero",'alfa.png'),
-    # Hiragana.new( 'ろ', '[ろ]く', "{ro ku}", "Six",'alfa.png'),
-    # #w-line
-    # Hiragana.new( 'わ', '[わ]たし', "{wa ta shi}", "I",'alfa.png'),
-    # Hiragana.new( 'を     ', '[あ]お', "{a o}", "Blue",'alfa.png'),
-    # #n-line
-    # Hiragana.new( 'ん     ', '[あ]お', "{a o}", "Blue",'alfa.png')
+    #t-line
+    Hiragana.new( 'た', '[は]い', "{ha i}", "Yes",'alfa.png',"ta"),
+    Hiragana.new( 'ち     ', '[あ]お', "{a o}", "Blue",'alfa.png',"chi"),
+    Hiragana.new( 'つ', '[つ]くる', "{tsu ku ru}", "Make",'alfa.png', "tsu"),
+    Hiragana.new( 'て', '[て]', "{te}", "Hand",'alfa.png', "te"),
+    Hiragana.new( 'と', '[と]けい', "{to ke i}", "Clock",'alfa.png',"to"),
+    #n-line
+    Hiragana.new( 'な     ', '[あ]お', "{a o}", "Blue",'alfa.png',"na"),
+    Hiragana.new( 'に     ', '[あ]お', "{a o}", "Blue",'alfa.png',"ni"),
+    Hiragana.new( 'ぬ     ', '[あ]お', "{a o}", "Blue",'alfa.png',"nu"),
+    Hiragana.new( 'ね', '[ね]こ', "{ne ko}", "Cat",'alfa.png',"ne"),
+    Hiragana.new( 'の     ', '[あ]お', "{a o}", "Blue",'alfa.png',"no"),
+    #h-line
+    Hiragana.new( 'は     ', '[あ]お', "{a o}", "Blue",'alfa.png',"ha"),
+    Hiragana.new( 'ひ', '[ひ]と', "{hi to}", "Person",'alfa.png',"hi"),
+    Hiragana.new( 'ふ', '[ふ]ん', "{fu n}", "Minute",'alfa.png',"fu"),
+    Hiragana.new( 'へ     ', '[あ]お', "{a o}", "Blue",'alfa.png',"he"),
+    Hiragana.new( 'ほ     ', '[あ]お', "{a o}", "Blue",'alfa.png',"ho"),
+    #m-line
+    Hiragana.new( 'ま     ', '[あ]お', "{a o}", "Blue",'alfa.png',"ma"),
+    Hiragana.new( 'み', '[み]る', "{mi ru}", "see",'alfa.png',"mi"),
+    Hiragana.new( 'む     ', '[あ]お', "{a o}", "Blue",'alfa.png',"mu"),
+    Hiragana.new( 'め     ', '[あ]お', "{a o}", "Blue",'alfa.png',"me"),
+    Hiragana.new( 'も', '[む]ね', "{mu ne}", "Chest",'alfa.png',"mo"),
+    #y-line
+    Hiragana.new( 'や     ', '[あ]お', "{a o}", "Blue",'alfa.png',"ya"),
+    Hiragana.new( 'ゆ', '[ゆ]び', "{yu bi}", "Finger",'alfa.png',"yu"),
+    Hiragana.new( 'よ     ', '[あ]お', "{a o}", "Blue",'alfa.png',"yo"),
+    #r-line
+    Hiragana.new( 'ら     ', '[あ]お', "{a o}", "Blue",'alfa.png',"ra"),
+    Hiragana.new( 'り     ', '[あ]お', "{a o}", "Blue",'alfa.png',"ri"),
+    Hiragana.new( 'る     ', '[あ]お', "{a o}", "Blue",'alfa.png',"ru"),
+    Hiragana.new( 'れ', '[れ]い', "{re i}", "Zero",'alfa.png',"re"),
+    Hiragana.new( 'ろ', '[ろ]く', "{ro ku}", "Six",'alfa.png',"ro"),
+    #w-line
+    Hiragana.new( 'わ', '[わ]たし', "{wa ta shi}", "I",'alfa.png',"wa"),
+    Hiragana.new( 'を     ', '[あ]お', "{a o}", "Blue",'alfa.png',"w[o]"),
+    #n-line
+    Hiragana.new( 'ん     ', '[あ]お', "{a o}", "Blue",'alfa.png',"n")
    # Hiragana.new( 'Rochefort', 'http://en.wikipedia.org/wiki/Rochefort_Brewery'),
   #   Beer.new(51.284720, 4.656670, 'Westmalle', 'http://en.wikipedia.org/wiki/Westmalle_Brewery'),
   #   Beer.new(50.895942, 2.721262, 'Westvleteren', 'http://en.wikipedia.org/wiki/Westvleteren_Brewery'),
