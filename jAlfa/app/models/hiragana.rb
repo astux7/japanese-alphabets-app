@@ -8,26 +8,33 @@ class Hiragana
     @romaji = romaji
   end
 
-  def letter; @letter; end
-  def hiragana_char; @hiragana_char; end
-  def reading; @reading; end
-  def translation; @translation; end
-  def thumbImage; @thumbImage; end
-  def romaji; @romaji; end
+  # def letter; @letter; end
+  # def hiragana_char; @hiragana_char; end
+  # def reading; @reading; end
+  # def translation; @translation; end
+  # def thumbImage; @thumbImage; end
+  # def romaji; @romaji; end
+
+  attr_accessor :letter, :hiragana_char, :reading, :translation, :thumbImage, :romaji
 
   def self.random_image
      random_index = rand(All.count)
      All[random_index].thumbImage
   end
 
+  def self.format_line(hiragana_obj)
+   # m = Hiragana.new(hiragana_obj)
+    hiragana_obj.letter+"   "+hiragana_obj.romaji
+  end
+
 
   All = [
    # Hiragana.new( 'Romaji', 'Hiragana', "Reading", "Meaning",'alfa.png', ""),
      #vowels
-    Hiragana.new( 'あ', '[あ]お', "{a o}", "Blue",'a.png', "a"),
-    Hiragana.new( 'い', '[い]す', "{i su}", "Chair",'i.png',"i"),
+    Hiragana.new( 'あ', '[あ]お', "{a o}", "Blue",'a.png', "aaa"),
+    Hiragana.new( 'い', '[い]す', "{i su}", "Chair",'i.png',"aaai"),
     Hiragana.new( 'う', '[う]で', "{u de}", "Arm",'u.png',"u"),
-    Hiragana.new( 'え', '[え]いが', "{e i ga}", "Movie",'e.png',"e"),
+    Hiragana.new( 'え', '[え]いが', "{e i ga}", "Movie",'e.png',"aae"),
     Hiragana.new( 'お', '[お]んな', "{o n na}", "Female",'o.png',"o"),
     #k-line
     Hiragana.new( 'か', '[か]いしゃ', "{ka i sha}", "Company",'ka.png',"ka"),
