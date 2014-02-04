@@ -37,8 +37,8 @@ class PaintView < UIView
 
   def touchesBegan(touches, withEvent:event)
     bp = UIBezierPath.alloc.init
-    bp.lineWidth = 3.0
-    color = UIColor.alloc.initWithRed(1.0,green: 1.0,blue: 1.0, alpha:1.0)
+    bp.lineWidth = 12.0
+    color = UIColor.alloc.initWithRed(0.90, green: 0.85, blue: 0.90, alpha:1.0) 
     @paths << [bp, color]
   end
 
@@ -63,4 +63,5 @@ class PaintView < UIView
     @eraseSound.play
     setNeedsDisplay
   end
+
 end

@@ -1,6 +1,8 @@
 #require_relative 'hiragana'
 class Quiz
 
+QUIZ_QUESTIONS = 4
+
   def initialize(random_question = [], scores = 0, correct_answer = nil)
     @random_question = random_question
     @scores = scores
@@ -9,7 +11,7 @@ class Quiz
 
   attr_accessor :random_question, :scores, :correct_answer
 
-  def generate_question(number = 4)
+  def generate_question(number = QUIZ_QUESTIONS)
     reset(number)
     random_letters = (Hiragana::All).shuffle.take(number)
     random_letters.each.with_index{|element, index|
@@ -24,7 +26,7 @@ class Quiz
 
   def reset(number)
     @random_question = []
-    @correct_answer = rand(number-1)
+    @correct_answer = rand(number)
   end
 
 end

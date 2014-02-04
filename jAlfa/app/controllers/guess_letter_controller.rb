@@ -11,7 +11,7 @@ class GuessLetterController < UIViewController
     super
     self.new_game 
     self.init_views
-    self.tabBarController.navigationItem.title = "Hiragana App"
+    self.tabBarController.navigationItem.title = "ひらがな App"
   end
   #for the title to the top to work!
   def viewWillAppear(animated)

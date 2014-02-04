@@ -18,24 +18,86 @@ class DrawLetterController < UIViewController
     navigationController.setNavigationBarHidden(false, animated:true)
   end 
 
- def viewDidLoad
-    super
-    self.tabBarController.navigationItem.title = "Hiragana App"
-    paintView = PaintView.alloc.initWithFrame(self.view.bounds)
-    
-  
-    xcode_image = UIImage.imageNamed("practice.png")
-    @xcode_image_view1 = UIImageView.alloc.initWithImage(xcode_image)
-    @xcode_image_view1.setFrame(CGRectMake(50,150,250,250))
 
-    # self.addSubview(@xcode_image_view1)
-     
-    #view.addSubview(@xcode_image_view1)
-    view.sendSubviewToBack(@xcode_image_view1)
-    view.addSubview(@xcode_image_view1)
-    paintView.backgroundColor = UIColor.clearColor
-    view.addSubview(paintView)
-     
+  def clear_button
+    button = UIButton.buttonWithType UIButtonTypeRoundedRect
+    button.setTitle "Clear", forState: UIControlStateNormal
+    button.frame = [[170, 450], [130, 50]] 
+    button.font =  UIFont.systemFontOfSize(20)
+
+    button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
+
+    mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
+                byRoundingCorners: UIRectCornerTopLeft | UIRectCornerBottomRight,
+                cornerRadii:       CGSizeMake(40.0, 100.0))
+
+
+    mask_layer = CAShapeLayer.layer
+    mask_layer.frame = button.bounds
+    mask_layer.path = mask_path.CGPath
+    button.layer.mask = mask_layer
+
+   # button.tag = index #for send which was pressed
+    button.backgroundColor = UIColor.alloc.initWithRed(0.90, green: 0.85, blue: 0.90, alpha:1.0) 
+    button.addTarget(self,
+      action: "clear_drawing", forControlEvents: UIControlEventTouchUpInside) 
+   # @buttons.push button
+    button
+  end
+
+  def next_letter_button
+    button = UIButton.buttonWithType UIButtonTypeRoundedRect
+    button.setTitle "Next", forState: UIControlStateNormal
+    button.frame = [[20, 450], [130, 50]] 
+    button.font =  UIFont.systemFontOfSize(20)
+
+    button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
+
+    mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
+                 byRoundingCorners: UIRectCornerTopRight | UIRectCornerBottomLeft,
+                 cornerRadii:       CGSizeMake(40.0, 100.0))
+
+    mask_layer = CAShapeLayer.layer
+    mask_layer.frame = button.bounds
+    mask_layer.path = mask_path.CGPath
+    button.layer.mask = mask_layer
+    button.backgroundColor = UIColor.alloc.initWithRed(0.90, green: 0.85, blue: 0.90, alpha:1.0) 
+    button.addTarget(self,
+      action: "next_random_letter", forControlEvents: UIControlEventTouchUpInside) 
+    button
+  end
+
+  def  next_random_letter
+    reset
+    view.backgroundColor = UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)
+    self.tabBarController.navigationItem.title = "Hiragana App"
+
+    @paintView = PaintView.alloc.initWithFrame(self.view.bounds)
+    @paintView.backgroundColor = UIColor.clearColor
+    #set bg img
+    random_img = UIImage.imageNamed(Hiragana.random_image)
+    image_view = UIImageView.alloc.initWithImage(random_img)
+    image_view.backgroundColor = UIColor.clearColor
+    image_view.setFrame(CGRectMake(0,100,310,310))
+    #add subviews
+    view.addSubview(image_view)
+    view.addSubview(@paintView)
+    view.addSubview(next_letter_button)
+    view.addSubview(clear_button)
+
+  end
+
+  def reset
+    view.subviews.each {|sv| sv.removeFromSuperview}
+  end
+
+  def clear_drawing
+    @paintView.eraseContent
+  end
+
+  def viewDidLoad
+    super
+    next_random_letter
   end
 
   def motionEnded(motion, withEvent:event)
