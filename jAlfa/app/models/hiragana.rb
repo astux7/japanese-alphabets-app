@@ -23,7 +23,7 @@ class Hiragana
   end
 
   def self.format_line(hiragana_obj)
-    hiragana_obj.letter+"   "+hiragana_obj.romaji
+    hiragana_obj.hiragana_char+"     "+hiragana_obj.reading
   end
 
 
@@ -40,7 +40,7 @@ class Hiragana
     Hiragana.new( 'き', '[き]ょう', "{ki ō}", "Today",'ki.png',"ki"),
     Hiragana.new( 'く', '[く]る', "{ku ru}", "Come",'ku.png',"ku"),
     Hiragana.new( 'け', '[け]むし', "{ke mu shi}", "Caterpillar",'ke.png',"ke"),
-    Hiragana.new( 'こ', '[こ]ども', "ko do mo", "Child",'ko.png',"ko"),
+    Hiragana.new( 'こ', '[こ]ども', "{ko do mo}", "Child",'ko.png',"ko"),
     #s-line
     Hiragana.new( 'さ', '[さ]る', "{sa ru}", "Monkey",'sa.png',"sa"),
     Hiragana.new( 'し', '[し]お', "{shi o}", "Salt",'shi.png',"shi"),

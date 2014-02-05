@@ -13,14 +13,16 @@ class StudyLetterController < UITableViewController
     self.tabBarController.navigationItem.title = "Hiragana App"
     search_bar = UISearchBar.alloc.initWithFrame([[0,0],[320,44]])
     search_bar.delegate = self
+    search_bar.backgroundColor =   UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
     view.addSubview(search_bar)
     view.tableHeaderView = search_bar
     @search_results = []
+    view.backgroundColor =   UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
     # @search_results =  Hiragana::All.select{|hiragana| 
     #  hiragana if (hiragana.romaji.strip.start_with? "aa")
     # }
 
-    #view.dataSource = view.delegate = self
+    view.dataSource = view.delegate = self
   end
 
   def searchBarSearchButtonClicked(search_bar)
@@ -51,15 +53,22 @@ class StudyLetterController < UITableViewController
 
    def tableView(tableView, numberOfRowsInSection:section)
    # Hiragana::All.size
+    # UIView.alloc.init.tap do |view|
+    #   view.backgroundColor = UIColor.blueColor
+    # end
     @search_results.to_a.empty? ? Hiragana::All.size : @search_results.to_a.length 
+    
   end
 
   CELLID = 'CellIdentifier'
   def tableView(tableView, cellForRowAtIndexPath:indexPath)
     cell = tableView.dequeueReusableCellWithIdentifier(CELLID) || begin
-      cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:CELLID)
+      cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:CELLID)
       cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton
       cell.selectionStyle = UITableViewCellSelectionStyleNone
+      cell.backgroundColor = UIColor.alloc.initWithRed(0.90, green: 0.85, blue: 0.90, alpha:1.0) 
+      cell.font = UIFont.systemFontOfSize(23)
+      #.font = UIFont.boldSystemFontOfSize(17)
       cell
     end
   #  hirogana = Hiragana::All[indexPath.row]
