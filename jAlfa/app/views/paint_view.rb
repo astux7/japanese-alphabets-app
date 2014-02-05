@@ -17,17 +17,6 @@ class PaintView < UIView
 
   def drawRect(rect)
     UIColor.clearColor.set
-   #  #@images = %w{matz guido kay jmccolor}.map { |name| UIImage.imageNamed(name + '.jpg') }
-    
-   #  UIColor.colorWithPatternImage(UIImage.imageNamed("practice.png")).set
-
-   #  # xcode_image = UIImage.imageNamed("practice.png")
-   #  # @xcode_image_view1 = UIImageView.alloc.initWithImage(xcode_image)
-   #  # @xcode_image_view1.setFrame(CGRectMake(50,150,250,250))
-
-   #  # self.addSubview(@xcode_image_view1)
-   #  # self.sendSubviewToBack(@xcode_image_view1)
-
     UIBezierPath.bezierPathWithRect(rect).fill
     @paths.each do |path, color|
       color.set

@@ -9,39 +9,31 @@ class DrawLetterController < UIViewController
   # def loadView
   #   super
   #   self.tabBarController.navigationItem.title = "Hiragana App"
-  #  # self.view = PaintView.alloc.init
-  #  self.view = PaintView.alloc.init
-
   # end
+
   #for the title on the top to work!
   def viewWillAppear(animated)
     navigationController.setNavigationBarHidden(false, animated:true)
   end 
-
 
   def clear_button
     button = UIButton.buttonWithType UIButtonTypeRoundedRect
     button.setTitle "Clear", forState: UIControlStateNormal
     button.frame = [[170, 450], [130, 50]] 
     button.font =  UIFont.systemFontOfSize(20)
-
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
 
     mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
                 byRoundingCorners: UIRectCornerTopLeft | UIRectCornerBottomRight,
                 cornerRadii:       CGSizeMake(40.0, 100.0))
-
-
     mask_layer = CAShapeLayer.layer
     mask_layer.frame = button.bounds
     mask_layer.path = mask_path.CGPath
     button.layer.mask = mask_layer
-
    # button.tag = index #for send which was pressed
     button.backgroundColor = UIColor.alloc.initWithRed(0.90, green: 0.85, blue: 0.90, alpha:1.0) 
     button.addTarget(self,
       action: "clear_drawing", forControlEvents: UIControlEventTouchUpInside) 
-   # @buttons.push button
     button
   end
 
@@ -50,7 +42,6 @@ class DrawLetterController < UIViewController
     button.setTitle "Next", forState: UIControlStateNormal
     button.frame = [[20, 450], [130, 50]] 
     button.font =  UIFont.systemFontOfSize(20)
-
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
 
     mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
@@ -61,6 +52,7 @@ class DrawLetterController < UIViewController
     mask_layer.frame = button.bounds
     mask_layer.path = mask_path.CGPath
     button.layer.mask = mask_layer
+    
     button.backgroundColor = UIColor.alloc.initWithRed(0.90, green: 0.85, blue: 0.90, alpha:1.0) 
     button.addTarget(self,
       action: "next_random_letter", forControlEvents: UIControlEventTouchUpInside) 
