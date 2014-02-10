@@ -1,4 +1,4 @@
-require_relative '../../app/models/quiz'
+#require_relative '../../app/models/quiz'
 
 describe "Quiz" do 
  let(:quiz){Quiz.new}

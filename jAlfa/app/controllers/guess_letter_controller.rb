@@ -1,7 +1,8 @@
 class GuessLetterController < UIViewController 
   def init
     if super
-     # self.title = 'Quiz'
+      self.title = "Asta"
+      #self.navigationItem.title = 'Quiz'
       self.tabBarItem = UITabBarItem.alloc.initWithTitle('Quiz', image:UIImage.imageNamed('quiz.png'), tag:0)
     end
     self
@@ -9,9 +10,11 @@ class GuessLetterController < UIViewController
   #after init goes this
   def viewDidLoad   
     super
+    #self.title="your title"
+    #self.navItem.title = "asta"
     self.new_game 
     self.init_views
-    self.tabBarController.navigationItem.title = "ひらがな App"
+   # self.tabBarController.navigationItem.title = "ひらがな App"
   end
   #for the title to the top to work!
   def viewWillAppear(animated)
@@ -150,19 +153,18 @@ class GuessLetterController < UIViewController
   end
   #correct answer -> next question
   def correct_answer
-    @scores += 1
     new_question
     @label_quess.text = "That's correct!"
+    return @scores = 0 if @scores > 1000000 
+    @scores += 1
+
   end
   #quiz incorrect answer -> removes leaf
   def incorrect_answer(button_index)
-    @scores -= 1
     @label_quess.text = "Guess once more!"
     @buttons[button_index].removeFromSuperview
+    return @scores = 0 if @scores < -1000000
+    @scores -= 1
   end
-
-  # def done_with_b
-  #   self.dismissViewControllerAnimated true, completion:nil
-  # end
 
 end

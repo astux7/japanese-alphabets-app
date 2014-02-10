@@ -1,7 +1,6 @@
 class PaintView < UIView
   def initWithFrame(rect)
     if super
-
       path = NSBundle.mainBundle.pathForResource('erase', ofType:'caf')
       url = NSURL.fileURLWithPath(path)
       error_ptr = Pointer.new(:id)
@@ -25,18 +24,13 @@ class PaintView < UIView
     end
   end
 
-
   def touchesBegan(touches, withEvent:event)
     bp = UIBezierPath.alloc.init
-    bp.miterLimit = 2.0
     bp.lineWidth = 12.0
-    bp.flatness = 0.2
     color = UIColor.alloc.initWithRed(0.90, green: 0.85, blue: 0.90, alpha:1.0) 
     @paths << [bp, color]
-    
     touch = event.touchesForView(self).anyObject
     point = touch.locationInView(self)
-
     bp.moveToPoint(point)
   end
 
@@ -44,15 +38,7 @@ class PaintView < UIView
     touch = event.touchesForView(self).anyObject
     point = touch.locationInView(self)
     bp = @paths.last.first
-
     bp.addLineToPoint(point)
-
-    # if @previousPoint and !@paths.empty?
-    #   bp = @paths.last.first
-    #   bp.addLineToPoint(point)
-    #   # bp.stroke
-    # end
-    # @previousPoint = point
     setNeedsDisplay
   end
 
