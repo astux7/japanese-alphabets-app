@@ -3,7 +3,7 @@ class GuessLetterController < UIViewController
     if super
       self.title = "Asta"
       #self.navigationItem.title = 'Quiz'
-      self.tabBarItem = UITabBarItem.alloc.initWithTitle('Quiz', image:UIImage.imageNamed('quiz.png'), tag:0)
+      self.tabBarItem = UITabBarItem.alloc.initWithTitle('Test', image:UIImage.imageNamed('quiz.png'), tag:0)
     end
     self
   end
