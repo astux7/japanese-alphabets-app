@@ -12,13 +12,13 @@ Here I found a solution create my own App for learning Hiraga.
 
 <h4>How it looks now</h4>
 Main targets of the app is
-*Study
+* Study
 (you learn the hiragana)
 ![alt tag](https://lh4.googleusercontent.com/-AZFG3anf3uQ/UvqhauXpOyI/AAAAAAAAIs8/Ff2DigodatU/w1012-h612-no/study.png)
-*Test
+* Test
 (you challenge yourself)
 ![alt tag](https://lh6.googleusercontent.com/-u8kf2XsJnqc/UvqhYnWUPxI/AAAAAAAAIss/hq6DSZoING8/w1010-h622-no/quiz.png)
-*Practice
+* Practice
 (you draw hiragana)
 ![alt tag](https://lh3.googleusercontent.com/-ja0AXwZtHnc/UvqhZdto_XI/AAAAAAAAIs0/piODUSEdzzI/w1010-h620-no/draw.png)
 
