@@ -75,7 +75,7 @@ class GuessLetterController < UIViewController
     button.frame = [[200, 150], [105, 105]] if index == 1
     button.frame = [[20, 300], [105, 105]] if index == 2
     button.frame = [[200, 300], [105, 105]] if index == 3
-    button.font =  UIFont.systemFontOfSize(50)
+    button.font =  UIFont.systemFontOfSize(45)
 
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
     #button.layer.cornerRadius = 50.0;
