@@ -6,12 +6,13 @@ Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'jAlfa'
   app.frameworks +=['AddressBook']
-  app.device_family = [:iphone, :ipad]
+  #app.device_family = [:iphone, :ipad]
   app.icons = ['icon.png', 'icon@2x.png']
   app.provisioning_profile = '/Users/astux7/Downloads/Test.mobileprovision' 
   app.codesign_certificate = 'Asta Bevainyte'
   app.prerendered_icon = true
   app.interface_orientations = [:portrait]
+  app.version = "1.0.x"
 
 end
 

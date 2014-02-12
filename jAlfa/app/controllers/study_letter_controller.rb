@@ -7,13 +7,17 @@ class StudyLetterController < UITableViewController
     self
   end
 
+  def ipad?
+    NSBundle.mainBundle.infoDictionary["UIDeviceFamily"].include?("2")
+  end
+
   def shouldAutorotate 
     false 
   end
 
   def viewDidLoad
     super
-    self.tabBarController.navigationItem.title = "B"
+
     search_bar = UISearchBar.alloc.initWithFrame([[0,0],[320,44]])
     search_bar.delegate = self
     view.addSubview(search_bar)
@@ -25,11 +29,20 @@ class StudyLetterController < UITableViewController
   end
 
   def searchBarSearchButtonClicked(search_bar)
+
     @search_results.clear
     search_bar.resignFirstResponder
     # navigationItem.title = "search results for '#{search_bar.text}'"
     search_for(search_bar.text)
+    search_bar.text = search_bar.text
+  end
+
+  def searchBarCancelButtonClicked(searchBar)
+    raise "asta"
     search_bar.text = ""
+    @search_results = []
+    #raise "asta"
+    view.reloadData
   end
 
   def search_for(text)
@@ -56,13 +69,16 @@ class StudyLetterController < UITableViewController
   end
 
   CELLID = 'CellIdentifier'
-  def tableView(tableView, cellForRowAtIndexPath:indexPath)
+  def tableView(tableView, cellForRowAtIndexPath:indexPath )
     cell = tableView.dequeueReusableCellWithIdentifier(CELLID) || begin
       cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:CELLID)
       cell.selectionStyle = UITableViewCellSelectionStyleNone 
       #cell.backgroundColor =UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) 
      # UIColor.alloc.initWithRed(0.94, green: 0.92, blue: 0.94, alpha:1.0) 
-      cell.font = UIFont.systemFontOfSize(27)
+      cell_font =  ipad? ? 30 : 27
+      #cell.setPreferredMaxLayoutHeight = 40
+      #cell.height = 10
+      cell.font = UIFont.systemFontOfSize(cell_font) 
       cell
     end
     hiragana = @search_results.empty? ?  Hiragana::Groups[indexPath.row] : @search_results.to_a[indexPath.row]

@@ -39,12 +39,17 @@ class DrawLetterController < UIViewController
     button
   end
 
+  def ipad?
+   false # NSBundle.mainBundle.infoDictionary["UIDeviceFamily"].include?("2")
+  end
+
   def next_letter_button
     @search_results = []
     button = UIButton.buttonWithType UIButtonTypeRoundedRect
     button.setTitle "Next", forState: UIControlStateNormal
-    button.frame = [[20,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
-    button.font =  UIFont.systemFontOfSize(20)
+    
+    button.frame = ipad? ? [[20,  UIScreen.mainScreen.bounds.size.height - 105], [200, 120]] : [[20,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
+    button.font = ipad? ? UIFont.systemFontOfSize(30) :  UIFont.systemFontOfSize(20)
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
 
     mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
@@ -69,7 +74,7 @@ class DrawLetterController < UIViewController
     
     reset
 
-    search_bar = UISearchBar.alloc.initWithFrame([[0,60],[320,44]])
+    search_bar = UISearchBar.alloc.initWithFrame([[0,60],[UIScreen.mainScreen.bounds.size.width,44]])
     search_bar.delegate = self
 
 
@@ -118,10 +123,11 @@ class DrawLetterController < UIViewController
 
   def searchBarSearchButtonClicked(search_bar)
     @search_results.clear
+    search_bar.text = search_bar.text
     search_bar.resignFirstResponder
     navigationItem.title = "search results for '#{search_bar.text}'"
     search_for(search_bar.text)
-    search_bar.text = ""
+
   end
 
   def search_for(text)

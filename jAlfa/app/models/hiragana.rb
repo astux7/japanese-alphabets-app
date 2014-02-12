@@ -73,28 +73,28 @@ class Hiragana
     Hiragana.new( 'ろ', "ro", "ro.png"), 
     #w-line
     Hiragana.new( 'わ', "wa", "wa.png"),
-    Hiragana.new( 'を', "wo", "wo.pmg"), 
+    Hiragana.new( 'を', "wo", "wo.png"), 
     #n-line
     Hiragana.new( 'ん', "n", "n.png") 
    ]
 
    Groups = [
-    ["Vowels", "  あ, い, う, え, お", "       A,          I,        U,        E,        O" ],
-    ["K-line", "  か, き, く, け, こ","     Ka,        Ki,       Ku,      Ke,       Ko"],
-    ["S-line", "  さ, し, す, せ, そ","     Sa,        Shi,      Su,      Se,       So"],
-    ["T-line", "  た, ち, つ, て, と","     Ta,        Chi,      Tsu,     Te,       To"],
-    ["N-line", "  な, に, ぬ, ね, の","     Na,        Ni,       Nu,     Ne,       No"],
-    ["H-line", "  は, ひ, ふ, へ, ほ","     Ha,        Hi,       Hu,     He,       Ho"], 
-    ["M-line", "  ま, み, む, め, も","     Ma,        Mi,      Mu,     Me,      Mo"],
-    ["Y-line", "  や, ゆ, よ","     Ya,        Yu,       Yo"],
-    ["R-line", "  ら, り, る, れ, ろ","     Ra,        Ri,       Ru,      Re,      Ro"],
-    ["W-line", "  わ, を","     Wa,       Wo"],
-    ["N-line", "  ん","     N"],
-    ["G-line", "  が, ぎ, ぐ, げ, ご","     Ga,       Gi,      Gu,      Ge,       Go"],
-    ["Z-line", "  ざ, じ, ず, ぜ, ぞ","     Za,        Ji,      Zu,      Ze,       Zo"],
-    ["D-line", "  だ, ぢ, づ, で, ど","     Da,        Di,      Du,     De,       Do"],
-    ["B-line", "  ば, び, ぶ, べ, ぼ","     Ba,        Bi,       Bu,     Be,       Bo"], 
-    ["P-line", "  ぱ, ぴ, ぷ, ぺ, ぽ","     Pa,        Pi,       Pu,     Pe,       Po"],
+    ["Vowels", "    あ,  い,  う,  え,  お","           A,          I,          U,           E,           O" ],
+    ["K-line", "    か,  き,  く,  け,  こ","         Ka,         Ki,         Ku,        Ke,         Ko"],
+    ["S-line", "    さ,  し,  す,  せ,  そ","         Sa,         Shi,        Su,        Se,         So"],
+    ["T-line", "    た,  ち,  つ,  て,  と","         Ta,         Chi,        Tsu,       Te,         To"],
+    ["N-line", "    な,  に,  ぬ,  ね,  の","         Na,         Ni,         Nu,        Ne,         No"],
+    ["H-line", "    は,  ひ,  ふ,  へ,  ほ","         Ha,         Hi,         Fu,        He,         Ho"], 
+    ["M-line", "    ま,  み,  む,  め,  も","         Ma,         Mi,         Mu,        Me,         Mo"],
+    ["Y-line", "    や,  ゆ,  よ"         ,"         Ya,         Yu,         Yo"],
+    ["R-line", "    ら,  り,  る,  れ,  ろ","         Ra,         Ri,         Ru,        Re,         Ro"],
+    ["W-line", "    わ,  を"              ,"         Wa,         Wo"],
+    ["N-line", "    ん"                   ,"         N"],
+    ["G-line", "    が,  ぎ,  ぐ,  げ,  ご","         Ga,         Gi,         Gu,        Ge,         Go"],
+    ["Z-line", "    ざ,  じ,  ず,  ぜ,  ぞ","         Za,         Ji,         Zu,        Ze,         Zo"],
+    ["D-line", "    だ,  ぢ,  づ,  で,  ど","         Da,         Di,         Du,        De,         Do"],
+    ["B-line", "    ば,  び,  ぶ,  べ,  ぼ","         Ba,         Bi,         Bu,        Be,         Bo"], 
+    ["P-line", "    ぱ,  ぴ,  ぷ,  ぺ,  ぽ","         Pa,         Pi,         Pu,        Pe,         Po"],
     ["", "",""],
     ["", "",""]
    ]
