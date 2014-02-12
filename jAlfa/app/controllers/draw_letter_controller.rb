@@ -13,6 +13,7 @@ class DrawLetterController < UIViewController
 
   #for the title on the top to work!
   def viewWillAppear(animated)
+    self.tabBarController.navigationItem.title = "Practice"
     navigationController.setNavigationBarHidden(false, animated:true)
   end 
 
@@ -74,7 +75,6 @@ class DrawLetterController < UIViewController
 
 
     view.backgroundColor = UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)
-    self.tabBarController.navigationItem.title = "Hiragana App"
 
     @paintView = PaintView.alloc.initWithFrame(self.view.bounds)
     @paintView.backgroundColor = UIColor.clearColor

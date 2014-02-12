@@ -13,8 +13,7 @@ class StudyLetterController < UITableViewController
 
   def viewDidLoad
     super
-    
-    self.tabBarController.navigationItem.title = "Hiragana App"
+    self.tabBarController.navigationItem.title = "B"
     search_bar = UISearchBar.alloc.initWithFrame([[0,0],[320,44]])
     search_bar.delegate = self
     view.addSubview(search_bar)
@@ -28,7 +27,7 @@ class StudyLetterController < UITableViewController
   def searchBarSearchButtonClicked(search_bar)
     @search_results.clear
     search_bar.resignFirstResponder
-    navigationItem.title = "search results for '#{search_bar.text}'"
+    # navigationItem.title = "search results for '#{search_bar.text}'"
     search_for(search_bar.text)
     search_bar.text = ""
   end
@@ -48,6 +47,7 @@ class StudyLetterController < UITableViewController
 
   #for the title to the top to work
   def viewWillAppear(animated)
+    self.tabBarController.navigationItem.title = "Study"
     navigationController.setNavigationBarHidden(false, animated:true)
   end    
 

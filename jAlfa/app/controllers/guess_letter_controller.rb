@@ -1,8 +1,6 @@
 class GuessLetterController < UIViewController 
   def init
     if super
-      self.title = "Asta"
-      #self.navigationItem.title = 'Quiz'
       self.tabBarItem = UITabBarItem.alloc.initWithTitle('Test', image:UIImage.imageNamed('quiz.png'), tag:0)
     end
     self
@@ -15,14 +13,14 @@ class GuessLetterController < UIViewController
   #after init goes this
   def viewDidLoad   
     super
-    #self.title="your title"
-    #self.navItem.title = "asta"
+
     self.new_game 
     self.init_views
-   # self.tabBarController.navigationItem.title = "ひらがな App"
+
   end
   #for the title to the top to work!
   def viewWillAppear(animated)
+    self.tabBarController.navigationItem.title = "Test"
     navigationController.setNavigationBarHidden(false, animated:true)
   end    
 
@@ -45,7 +43,6 @@ class GuessLetterController < UIViewController
 
  def init_views
 
-    #view.title = "Editable Tableview"
     view.backgroundColor = UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) 
     questions = @quiz.generate_question
     #creating answer
