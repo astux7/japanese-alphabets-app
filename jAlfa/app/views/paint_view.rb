@@ -4,11 +4,11 @@ class PaintView < UIView
       path = NSBundle.mainBundle.pathForResource('erase', ofType:'caf')
       url = NSURL.fileURLWithPath(path)
       error_ptr = Pointer.new(:id)
-      @eraseSound = AVAudioPlayer.alloc.initWithContentsOfURL(url,
-        error:error_ptr)
-      unless @eraseSound
-        raise "Can't open sound file: #{error_ptr[0].description}"
-      end
+      # @eraseSound = AVAudioPlayer.alloc.initWithContentsOfURL(url,
+      #   error:error_ptr)
+      # unless @eraseSound
+      #   raise "Can't open sound file: #{error_ptr[0].description}"
+      # end
       @paths = []
     end
     self
@@ -48,7 +48,7 @@ class PaintView < UIView
 
   def eraseContent
     @paths.clear
-    @eraseSound.play
+    # @eraseSound.play
     setNeedsDisplay
   end
 

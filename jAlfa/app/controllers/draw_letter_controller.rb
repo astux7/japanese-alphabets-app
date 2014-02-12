@@ -6,6 +6,13 @@ class DrawLetterController < UIViewController
     self
   end
 
+  def shouldAutorotate false end
+
+  # def shouldAutorotateToInterfaceOrientation(orientation)
+  #   true if ipad? or
+  #     orientation != UIInterfaceOrientationPortraitUpsideDown
+  # end
+
   # def loadView
   #   super
   #   self.tabBarController.navigationItem.title = "Hiragana App"

@@ -7,6 +7,8 @@ class StudyLetterController < UITableViewController
     self
   end
 
+  def shouldAutorotate false end
+
   def viewDidLoad
     super
     
@@ -56,7 +58,8 @@ class StudyLetterController < UITableViewController
     cell = tableView.dequeueReusableCellWithIdentifier(CELLID) || begin
       cell = UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:CELLID)
       cell.selectionStyle = UITableViewCellSelectionStyleNone 
-      cell.backgroundColor = UIColor.alloc.initWithRed(0.94, green: 0.92, blue: 0.94, alpha:1.0) 
+      #cell.backgroundColor =UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) 
+     # UIColor.alloc.initWithRed(0.94, green: 0.92, blue: 0.94, alpha:1.0) 
       cell.font = UIFont.systemFontOfSize(27)
       cell
     end

@@ -7,6 +7,9 @@ class GuessLetterController < UIViewController
     end
     self
   end
+
+  def shouldAutorotate false end
+
   #after init goes this
   def viewDidLoad   
     super
@@ -42,12 +45,6 @@ class GuessLetterController < UIViewController
 
     #view.title = "Editable Tableview"
     view.backgroundColor = UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) 
-    # @alert = UIAlertView.alloc.initWithTitle("Quiz", 
-    #     message: "Correct answer!", 
-    #     delegate: nil,
-    #     cancelButtonTitle: "Next question",
-    #     otherButtonTitles: nil)  
-    #creating question leafs
     questions = @quiz.generate_question
     #creating answer
     label_question = blossom_middle
@@ -55,10 +52,8 @@ class GuessLetterController < UIViewController
       button_leaf = leaf_button(question,index)
       view.addSubview button_leaf
       #adding label of question
-      if question[:correct]
-      
-        label_question.text = question[:label]
-      end
+      label_question.text = question[:label]if question[:correct]
+
     end
     view.addSubview label_question
     #results labels
