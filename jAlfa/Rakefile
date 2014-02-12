@@ -2,17 +2,11 @@
 $:.unshift("/Library/RubyMotion/lib")
 require 'motion/project/template/ios'
 
-# begin
-#   require 'bundler'
-#   Bundler.require
-# rescue LoadError
-# end
-
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'jAlfa'
   app.frameworks +=['AddressBook']
-  app.device_family = [:iphone]
+  app.device_family = [:iphone]#[:iphone, :ipad]
   app.icons = ['icon.png', 'icon@2x.png']
   app.provisioning_profile = '/Users/astux7/Downloads/Test.mobileprovision' 
   app.codesign_certificate = 'Asta Bevainyte'

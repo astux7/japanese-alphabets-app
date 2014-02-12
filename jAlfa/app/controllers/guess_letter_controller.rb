@@ -8,7 +8,9 @@ class GuessLetterController < UIViewController
     self
   end
 
-  def shouldAutorotate false end
+  def shouldAutorotate
+   false 
+  end
 
   #after init goes this
   def viewDidLoad   
@@ -66,10 +68,11 @@ class GuessLetterController < UIViewController
 
     button = UIButton.buttonWithType UIButtonTypeRoundedRect
     button.setTitle question[:answer], forState: UIControlStateNormal
-    button.frame = [[20, 150], [105, 105]] if index == 0
-    button.frame = [[200, 150], [105, 105]] if index == 1
-    button.frame = [[20, 300], [105, 105]] if index == 2
-    button.frame = [[200, 300], [105, 105]] if index == 3
+    offset =(UIScreen.mainScreen.bounds.size.height / 480)
+    button.frame = [[20, 115*offset], [105, 105]] if index == 0
+    button.frame = [[200, 115*offset], [105, 105]] if index == 1
+    button.frame = [[20, 265*offset], [105, 105]] if index == 2
+    button.frame = [[200, 265*offset], [105, 105]] if index == 3
     button.font =  UIFont.systemFontOfSize(45)
 
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
@@ -99,7 +102,7 @@ class GuessLetterController < UIViewController
   end
 
   def quess_label
-    @label_quess = UILabel.alloc.initWithFrame([[0, 445], [330, 40]])
+    @label_quess = UILabel.alloc.initWithFrame([[0, UIScreen.mainScreen.bounds.size.height - 105], [330, 40]])
     @label_quess.textAlignment = NSTextAlignmentCenter;
    # @label_quess.textColor = UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
     @label_quess.textColor = UIColor.alloc.initWithRed(0.39,green: 0.29,blue: 0.48, alpha: 1.0)  
@@ -131,7 +134,8 @@ class GuessLetterController < UIViewController
 
   def blossom_middle
     #question label -> middle one
-    label = UILabel.alloc.initWithFrame([[108, 225], [110, 110]])
+    offset = (UIScreen.mainScreen.bounds.size.height / 480)
+    label = UILabel.alloc.initWithFrame([[108, 190*offset], [110, 110]])
     label.textColor =  UIColor.whiteColor 
     label.layer.cornerRadius = 50.0;
     label.textAlignment = NSTextAlignmentCenter;

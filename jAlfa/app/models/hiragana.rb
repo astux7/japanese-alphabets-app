@@ -7,7 +7,8 @@ class Hiragana
 
   attr_accessor :letter, :thumbImage, :romaji
 
-  def self.random_image
+  def self.random_image(letter = [])
+     return letter.first if !letter.empty?
      random_index = rand(All.count)
      All[random_index].thumbImage
   end
@@ -81,7 +82,7 @@ class Hiragana
     ["Vowels", "  あ, い, う, え, お", "       A,          I,        U,        E,        O" ],
     ["K-line", "  か, き, く, け, こ","     Ka,        Ki,       Ku,      Ke,       Ko"],
     ["S-line", "  さ, し, す, せ, そ","     Sa,        Shi,      Su,      Se,       So"],
-    ["T-line", "  は, ち, つ, て, と","     Ta,        Chi,      Tsu,     Te,       To"],
+    ["T-line", "  た, ち, つ, て, と","     Ta,        Chi,      Tsu,     Te,       To"],
     ["N-line", "  な, に, ぬ, ね, の","     Na,        Ni,       Nu,     Ne,       No"],
     ["H-line", "  は, ひ, ふ, へ, ほ","     Ha,        Hi,       Hu,     He,       Ho"], 
     ["M-line", "  ま, み, む, め, も","     Ma,        Mi,      Mu,     Me,      Mo"],

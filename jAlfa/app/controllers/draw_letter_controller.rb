@@ -1,22 +1,15 @@
 class DrawLetterController < UIViewController
   def init
+    @search_results = []
     if super
       self.tabBarItem = UITabBarItem.alloc.initWithTitle('Practice', image:UIImage.imageNamed('draw.png'), tag:2)
     end
     self
   end
 
-  def shouldAutorotate false end
-
-  # def shouldAutorotateToInterfaceOrientation(orientation)
-  #   true if ipad? or
-  #     orientation != UIInterfaceOrientationPortraitUpsideDown
-  # end
-
-  # def loadView
-  #   super
-  #   self.tabBarController.navigationItem.title = "Hiragana App"
-  # end
+  def shouldAutorotate 
+    false 
+  end
 
   #for the title on the top to work!
   def viewWillAppear(animated)
@@ -26,7 +19,8 @@ class DrawLetterController < UIViewController
   def clear_button
     button = UIButton.buttonWithType UIButtonTypeRoundedRect
     button.setTitle "Clear", forState: UIControlStateNormal
-    button.frame = [[170, 450], [130, 50]] 
+    size = CGSizeMake(130, 50)
+    button.frame = [[170, UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] # [[320 - size.width, 440 - size.height], size]
     button.font =  UIFont.systemFontOfSize(20)
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
 
@@ -45,9 +39,10 @@ class DrawLetterController < UIViewController
   end
 
   def next_letter_button
+    @search_results = []
     button = UIButton.buttonWithType UIButtonTypeRoundedRect
     button.setTitle "Next", forState: UIControlStateNormal
-    button.frame = [[20, 450], [130, 50]] 
+    button.frame = [[20,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
     button.font =  UIFont.systemFontOfSize(20)
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
 
@@ -67,27 +62,41 @@ class DrawLetterController < UIViewController
   end
 
   def  next_random_letter
+
+   # search_bar.delegate = self
+
+    
     reset
+
+    search_bar = UISearchBar.alloc.initWithFrame([[0,60],[320,44]])
+    search_bar.delegate = self
+
+
+
     view.backgroundColor = UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)
     self.tabBarController.navigationItem.title = "Hiragana App"
 
     @paintView = PaintView.alloc.initWithFrame(self.view.bounds)
     @paintView.backgroundColor = UIColor.clearColor
     #set bg img
-    random_img = UIImage.imageNamed(Hiragana.random_image)
+    random_img = UIImage.imageNamed(Hiragana.random_image(@search_results))
     image_view = UIImageView.alloc.initWithImage(random_img)
     image_view.backgroundColor = UIColor.clearColor
-    image_view.setFrame(CGRectMake(0,100,310,310))
+    image_view_offset = (UIScreen.mainScreen.bounds.size.height / 480)
+    image_view.setFrame(CGRectMake(0*image_view_offset,80*image_view_offset,310*image_view_offset-20,310*image_view_offset))
     #add subviews
     view.addSubview(image_view)
     view.addSubview(@paintView)
     view.addSubview(next_letter_button)
     view.addSubview(clear_button)
+    view.addSubview(search_bar)
+
 
   end
 
   def reset
     view.subviews.each {|sv| sv.removeFromSuperview}
+   # @search_results = []
   end
 
   def clear_drawing
@@ -96,8 +105,35 @@ class DrawLetterController < UIViewController
 
   def viewDidLoad
     super
+   # self.
+    # search_bar = UISearchBar.alloc.initWithFrame([[0,60],[320,44]])
+    # search_bar.delegate = self
+
+    # view.addSubview(search_bar)
+ 
     next_random_letter
+    @search_results = []
+   
   end
+
+  def searchBarSearchButtonClicked(search_bar)
+    @search_results.clear
+    search_bar.resignFirstResponder
+    navigationItem.title = "search results for '#{search_bar.text}'"
+    search_for(search_bar.text)
+    search_bar.text = ""
+  end
+
+  def search_for(text)
+    search_results_all = Hiragana::All.select{|hiragana| 
+     hiragana.thumbImage  if hiragana.romaji.downcase.include? text.downcase
+    }
+    @search_results = search_results_all
+    #next_random_letter
+   # view.loadView
+   next_random_letter
+  end
+
 
   def motionEnded(motion, withEvent:event)
     self.view.eraseContent if motion == UIEventSubtypeMotionShake

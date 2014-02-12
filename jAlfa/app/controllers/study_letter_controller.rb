@@ -7,7 +7,9 @@ class StudyLetterController < UITableViewController
     self
   end
 
-  def shouldAutorotate false end
+  def shouldAutorotate 
+    false 
+  end
 
   def viewDidLoad
     super
