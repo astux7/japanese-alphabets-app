@@ -8,7 +8,7 @@ class Hiragana
   attr_accessor :letter, :thumbImage, :romaji
 
   def self.random_image(letter = [])
-     return letter.first if !letter.empty?
+     return letter.first.thumbImage if !letter.empty?
      random_index = rand(All.count)
      All[random_index].thumbImage
   end

@@ -126,7 +126,7 @@ class DrawLetterController < UIViewController
 
   def search_for(text)
     search_results_all = Hiragana::All.select{|hiragana| 
-     hiragana.thumbImage  if hiragana.romaji.downcase.include? text.downcase
+     hiragana  if hiragana.romaji.downcase.include? text.downcase
     }
     @search_results = search_results_all
     #next_random_letter
