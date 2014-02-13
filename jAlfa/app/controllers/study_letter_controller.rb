@@ -19,6 +19,7 @@ class StudyLetterController < UITableViewController
     super
 
     search_bar = UISearchBar.alloc.initWithFrame([[0,0],[320,44]])
+    search_bar.showsCancelButton = true
     search_bar.delegate = self
     view.addSubview(search_bar)
     view.tableHeaderView = search_bar
@@ -38,11 +39,15 @@ class StudyLetterController < UITableViewController
   end
 
   def searchBarCancelButtonClicked(searchBar)
-    raise "asta"
-    search_bar.text = ""
-    @search_results = []
+   # raise "asta"
+    #search_bar.text = ""
+    @search_results.clear
     #raise "asta"
+    searchBar.text = ""
+    searchBar.resignFirstResponder
     view.reloadData
+    
+    false
   end
 
   def search_for(text)
