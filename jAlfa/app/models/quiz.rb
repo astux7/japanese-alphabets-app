@@ -3,13 +3,15 @@ class Quiz
 
 QUIZ_QUESTIONS = 4
 
-  def initialize(random_question = [], scores = 0, correct_answer = nil)
+  def initialize(random_question = [], scores = 0, correct_answer = nil, correct = 0, incorrect = 0)
     @random_question = random_question
+    @correct = correct
+    @incorrect = incorrect
     @scores = scores
     @correct_answer = correct_answer
   end
 
-  attr_accessor :random_question, :scores, :correct_answer
+  attr_accessor :random_question, :scores, :correct_answer, :incorrect, :correct
 
   def generate_question(number = QUIZ_QUESTIONS)
     reset(number)

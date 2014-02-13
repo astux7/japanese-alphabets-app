@@ -90,7 +90,7 @@ class DrawLetterController < UIViewController
     image_view = UIImageView.alloc.initWithImage(random_img)
     image_view.backgroundColor = UIColor.clearColor
     image_view_offset = (UIScreen.mainScreen.bounds.size.height / 480)
-    image_view.setFrame(CGRectMake(0*image_view_offset,90*image_view_offset,305*image_view_offset-20,305*image_view_offset))
+    image_view.setFrame(CGRectMake(0*image_view_offset,90*image_view_offset,300*image_view_offset-20,300*image_view_offset))
     #add subviews
     view.addSubview(image_view)
     view.addSubview(@paintView)
@@ -142,7 +142,7 @@ end
     search_results_all = Hiragana::All.select{|hiragana| 
      hiragana  if hiragana.romaji.downcase.include? text.downcase
     }
-    @search_results = search_results_all.empty? ? ["nope"] : search_results_all
+    @search_results = search_results_all.empty? ? ["none"] : search_results_all
 
    next_random_letter
   end
