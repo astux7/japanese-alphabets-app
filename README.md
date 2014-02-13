@@ -16,17 +16,20 @@ Here I found a solution of creating my own App for learning Hiraga.
 Main targets of the app is
 * Study
 (you learn the hiragana)
-![alt tag](https://lh4.googleusercontent.com/-AZFG3anf3uQ/UvqhauXpOyI/AAAAAAAAIs8/Ff2DigodatU/w1012-h612-no/study.png)
+
+![alt tag](https://lh4.googleusercontent.com/-pWUuz3CBnXE/Uv1WIwPIr5I/AAAAAAAAIvU/CNpgGUGwGi4/w557-h300-no/study.png)
 * Challenge
 (you test your knowledge)
-![alt tag](https://lh6.googleusercontent.com/-u8kf2XsJnqc/UvqhYnWUPxI/AAAAAAAAIss/hq6DSZoING8/w1010-h622-no/quiz.png)
+
+![alt tag](https://lh4.googleusercontent.com/-qITQmC-RDUY/Uv1V_JBFHVI/AAAAAAAAIu0/IXNr3ic5bGc/w630-h360-no/test.png)
 * Practice
 (you practice to draw hiragana)
-![alt tag](https://lh3.googleusercontent.com/-ja0AXwZtHnc/UvqhZdto_XI/AAAAAAAAIs0/piODUSEdzzI/w1010-h620-no/draw.png)
+
+![alt tag](https://lh5.googleusercontent.com/-BbKcvvsgIqQ/Uv1WEYZkxvI/AAAAAAAAIvE/AJfKcChJcJA/w630-h387-no/draw.png)
 
 <h4>About the jAlfa App </h4>
-* 46 main hiragana Monographs to draw
-* 46 main hiragana Monographs to learn + 25 more Diacritics to study
-* 46 Monographs and 25 Diacritics for test your knowledge
+* 46 Monographs and 25 Diacritics hiragana to draw
+* 46 Monographs and 25 Diacritics hiragana to study
+* 46 Monographs and 25 Diacritics hiragana for test your knowledge
 * suitable for iPad and iPhone
 
