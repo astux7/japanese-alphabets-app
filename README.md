@@ -7,9 +7,10 @@ Here I found a solution of creating my own App for learning Hiraga.
 
 <h4>Inspiration and used tutorials during creation </h4>
 * Design inspired from <a href="http://www.degraeve.com/color-palette/index.php" >Color palette</a>  with <a href="http://www.colorhexa.com/" >Collor examples</a>
-![alt tag](https://lh4.googleusercontent.com/-TdG9hL99R4k/Uu9uIohVPPI/AAAAAAAAIqk/Bub-3hA9VOY/w952-h828-no/inspiration_img.png)
+
+![alt tag](https://lh5.googleusercontent.com/-TdG9hL99R4k/Uu9uIohVPPI/AAAAAAAAItU/4UYphgbUueI/w460-h300-no/inspiration_img.png)
 * Text from google and japanese learning books
-* Used technology - Rubymotion
+* Technology - Rubymotion
 
 <h4>How it looks now</h4>
 Main targets of the app is
