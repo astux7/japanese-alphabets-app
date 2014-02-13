@@ -2,8 +2,8 @@
 (C) 2014 Asta B.
 
 <h4>Intro</h4>
-I spend lots time on the way with my ipad and I want to read and practice japanese.
-Here I found a solution of creating my own App for learning Hiraga.
+During the journey by bus/train/plain I want to read and practice japanese.
+Here I found a solution of creating my own App for learning japanese alphabet: hiragana.
 
 <h4>Inspiration and used tutorials during creation </h4>
 * Design inspired from <a href="http://www.degraeve.com/color-palette/index.php" >Color palette</a>  with <a href="http://www.colorhexa.com/" >Collor examples</a>
