@@ -10,14 +10,9 @@ class GuessLetterController < UIViewController
    false 
   end
 
-
-  def ipad?
-    UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad
-  end
   #after init goes this
   def viewDidLoad   
     super
-
     self.new_game 
     self.init_views
 
@@ -70,7 +65,7 @@ class GuessLetterController < UIViewController
 
     button = UIButton.buttonWithType UIButtonTypeRoundedRect
     button.setTitle question[:answer], forState: UIControlStateNormal
-    if ipad? 
+    if  Helper.ipad? 
     offset =(UIScreen.mainScreen.bounds.size.height / 1024)
     button.frame = [[40*offset, 95*2*offset], [260, 260]] if index == 0
     button.frame = [[460*offset, 95*2*offset], [260, 260]] if index == 1
@@ -91,11 +86,11 @@ class GuessLetterController < UIViewController
     if index == 0 || index == 3
       mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
                     byRoundingCorners: UIRectCornerTopRight | UIRectCornerBottomLeft,
-                    cornerRadii:      ipad? ? CGSizeMake(80.0, 200.0) :  CGSizeMake(40.0, 100.0))
+                    cornerRadii:      Helper.ipad? ? CGSizeMake(80.0, 200.0) :  CGSizeMake(40.0, 100.0))
     else
       mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
                  byRoundingCorners: UIRectCornerTopLeft | UIRectCornerBottomRight,
-                 cornerRadii:        ipad? ? CGSizeMake(80.0, 200.0) : CGSizeMake(40.0, 100.0))
+                 cornerRadii:        Helper.ipad? ? CGSizeMake(80.0, 200.0) : CGSizeMake(40.0, 100.0))
     end
 
     mask_layer = CAShapeLayer.layer
@@ -145,7 +140,7 @@ class GuessLetterController < UIViewController
   def blossom_middle
     #question label -> middle one
     
-    if ipad?
+    if Helper.ipad?
           offset =(UIScreen.mainScreen.bounds.size.height / 1024)
       label = UILabel.alloc.initWithFrame([[270*offset, 400*offset], [220, 220]])
            label.font = UIFont.systemFontOfSize(120)
@@ -155,7 +150,7 @@ class GuessLetterController < UIViewController
          label.font = UIFont.systemFontOfSize(50)
     end
     label.textColor =  UIColor.whiteColor 
-    label.layer.cornerRadius = ipad? ? 100.0 : 50.0;
+    label.layer.cornerRadius = Helper.ipad? ? 100.0 : 50.0;
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
 

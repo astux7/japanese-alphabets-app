@@ -23,8 +23,8 @@ class DrawLetterController < UIViewController
     size = CGSizeMake(130, 50)
 
     
-    button.frame = ipad? ? [[390,  UIScreen.mainScreen.bounds.size.height - 170], [340, 100]] : [[170,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
-    button.font = ipad? ? UIFont.systemFontOfSize(50) :  UIFont.systemFontOfSize(20)
+    button.frame = Helper.ipad? ? [[390,  UIScreen.mainScreen.bounds.size.height - 170], [340, 100]] : [[170,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
+    button.font = Helper.ipad? ? UIFont.systemFontOfSize(50) :  UIFont.systemFontOfSize(20)
    
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
 
@@ -42,17 +42,14 @@ class DrawLetterController < UIViewController
     button
   end
 
-  def ipad?
-    UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad
-  end
 
   def next_letter_button
     @search_results.clear
     button = UIButton.buttonWithType UIButtonTypeRoundedRect
     button.setTitle "Next", forState: UIControlStateNormal
     
-    button.frame = ipad? ? [[20,  UIScreen.mainScreen.bounds.size.height - 170], [340, 100]] : [[20,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
-    button.font = ipad? ? UIFont.systemFontOfSize(50) :  UIFont.systemFontOfSize(20)
+    button.frame = Helper.ipad? ? [[20,  UIScreen.mainScreen.bounds.size.height - 170], [340, 100]] : [[20,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
+    button.font = Helper.ipad? ? UIFont.systemFontOfSize(50) :  UIFont.systemFontOfSize(20)
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
 
     mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
@@ -75,7 +72,7 @@ class DrawLetterController < UIViewController
     reset
 
 
-    search_bar = UISearchBar.alloc.initWithFrame([[0,64],[UIScreen.mainScreen.bounds.size.width,44]])
+    search_bar = Helper.ipad? ? IpadSearchBar.alloc.initWithFrame([[0,60],[UIScreen.mainScreen.bounds.size.width,100]]) : UISearchBar.alloc.initWithFrame([[0,64],[UIScreen.mainScreen.bounds.size.width,44]])
     search_bar.placeholder = "search hiragana to draw"
     search_bar.backgroundColor = UIColor.redColor
     search_bar.showsCancelButton = true
