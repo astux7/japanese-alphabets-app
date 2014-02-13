@@ -17,7 +17,7 @@ Main targets of the app is
 * Study
 (you learn the hiragana)
 
-![alt tag](https://lh4.googleusercontent.com/-pWUuz3CBnXE/Uv1WIwPIr5I/AAAAAAAAIvU/CNpgGUGwGi4/w557-h300-no/study.png)
+![alt tag](https://lh4.googleusercontent.com/-pWUuz3CBnXE/Uv1WIwPIr5I/AAAAAAAAIvU/CNpgGUGwGi4/w630-h360-no/study.png)
 * Challenge
 (you test your knowledge)
 
