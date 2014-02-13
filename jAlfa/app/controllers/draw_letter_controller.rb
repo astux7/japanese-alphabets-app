@@ -90,7 +90,7 @@ class DrawLetterController < UIViewController
     image_view = UIImageView.alloc.initWithImage(random_img)
     image_view.backgroundColor = UIColor.clearColor
     image_view_offset = (UIScreen.mainScreen.bounds.size.height / 480)
-    image_view.setFrame(CGRectMake(0*image_view_offset,90*image_view_offset,300*image_view_offset-20,300*image_view_offset))
+    image_view.setFrame(CGRectMake(Helper.ipad? ? 50 : 0*image_view_offset,90*image_view_offset,300*image_view_offset-20,300*image_view_offset))
     #add subviews
     view.addSubview(image_view)
     view.addSubview(@paintView)

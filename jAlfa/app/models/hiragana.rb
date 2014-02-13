@@ -85,7 +85,7 @@ class Hiragana
     Hiragana.new( 'ご', "go", "go.png"),
     #z-line
     Hiragana.new( 'ざ', "za", "za.png"),
-    Hiragana.new( 'じ', "ji", "ji.png"),
+    Hiragana.new( 'じ', "ji", "zi.png"),
     Hiragana.new( 'ず', "zu", "zu.png"),
     Hiragana.new( 'ぜ', "ze", "ze.png"),
     Hiragana.new( 'ぞ', "zo", "zo.png"),
