@@ -13,7 +13,7 @@ Here I found a solution of creating my own App for learning Hiraga.
 * Technology - Rubymotion
 
 <h4>How it looks now</h4>
-Main targets of the app is
+Main targets of the app are
 * Study
 (you learn the hiragana)
 
