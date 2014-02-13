@@ -8,7 +8,7 @@ class StudyLetterController < UITableViewController
   end
 
   def ipad?
-    NSBundle.mainBundle.infoDictionary["UIDeviceFamily"].include?("2")
+    UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad
   end
 
   def shouldAutorotate 
@@ -19,6 +19,7 @@ class StudyLetterController < UITableViewController
     super
 
     search_bar = UISearchBar.alloc.initWithFrame([[0,0],[320,44]])
+    search_bar.backgroundColor = UIColor.redColor
     search_bar.showsCancelButton = true
     search_bar.delegate = self
     view.addSubview(search_bar)
@@ -30,23 +31,17 @@ class StudyLetterController < UITableViewController
   end
 
   def searchBarSearchButtonClicked(search_bar)
-
     @search_results.clear
     search_bar.resignFirstResponder
-    # navigationItem.title = "search results for '#{search_bar.text}'"
     search_for(search_bar.text)
     search_bar.text = search_bar.text
   end
 
   def searchBarCancelButtonClicked(searchBar)
-   # raise "asta"
-    #search_bar.text = ""
     @search_results.clear
-    #raise "asta"
     searchBar.text = ""
     searchBar.resignFirstResponder
     view.reloadData
-    
     false
   end
 
@@ -80,7 +75,7 @@ class StudyLetterController < UITableViewController
       cell.selectionStyle = UITableViewCellSelectionStyleNone 
       #cell.backgroundColor =UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) 
      # UIColor.alloc.initWithRed(0.94, green: 0.92, blue: 0.94, alpha:1.0) 
-      cell_font =  ipad? ? 30 : 27
+      cell_font =  ipad? ? 60 : 27
       #cell.setPreferredMaxLayoutHeight = 40
       #cell.height = 10
       cell.font = UIFont.systemFontOfSize(cell_font) 
@@ -89,9 +84,15 @@ class StudyLetterController < UITableViewController
     hiragana = @search_results.empty? ?  Hiragana::Groups[indexPath.row] : @search_results.to_a[indexPath.row]
     cell.textLabel.text = Hiragana.format_line(hiragana) 
     cell.detailTextLabel.text = Hiragana.format_line(hiragana, true)
+     cell_title_font = ipad? ? 29 : 12
+    cell.detailTextLabel.font = UIFont.systemFontOfSize(cell_title_font) 
     cell.textColor = UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 1.0)
     cell.detailTextLabel.textColor =  UIColor.alloc.initWithRed(0.39,green: 0.29,blue: 0.48, alpha: 1.0)  
     cell
+  end
+
+  def tableView(tableView, heightForRowAtIndexPath: indexPath)
+    ipad? ? 130 : 50
   end
 
 end

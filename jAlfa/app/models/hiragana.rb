@@ -60,7 +60,7 @@ class Hiragana
     Hiragana.new( 'み', "mi", "mi.png"), 
     Hiragana.new( 'む', "mu", "mu.png"), 
     Hiragana.new( 'め', "me", "me.png"), 
-    Hiragana.new( 'も', "mu", "mu.png"), 
+    Hiragana.new( 'も', "mo", "mo.png"), 
     #y-line
     Hiragana.new( 'や', "ya", "ya.png"),
     Hiragana.new( 'ゆ', "yu", "yu.png"), 
@@ -85,7 +85,7 @@ class Hiragana
     ["T-line", "    た,  ち,  つ,  て,  と","         Ta,         Chi,        Tsu,       Te,         To"],
     ["N-line", "    な,  に,  ぬ,  ね,  の","         Na,         Ni,         Nu,        Ne,         No"],
     ["H-line", "    は,  ひ,  ふ,  へ,  ほ","         Ha,         Hi,         Fu,        He,         Ho"], 
-    ["M-line", "    ま,  み,  む,  め,  も","         Ma,         Mi,         Mu,        Me,         Mo"],
+    ["M-line", "    ま,  み,  む,  め,  も","         Ma,         Mi,         Mu,        Me,        Mo"],
     ["Y-line", "    や,  ゆ,  よ"         ,"         Ya,         Yu,         Yo"],
     ["R-line", "    ら,  り,  る,  れ,  ろ","         Ra,         Ri,         Ru,        Re,         Ro"],
     ["W-line", "    わ,  を"              ,"         Wa,         Wo"],

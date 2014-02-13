@@ -22,7 +22,9 @@ class DrawLetterController < UIViewController
     button.setTitle "Clear", forState: UIControlStateNormal
     size = CGSizeMake(130, 50)
     button.frame = [[170, UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] # [[320 - size.width, 440 - size.height], size]
-    button.font =  UIFont.systemFontOfSize(20)
+    button.frame = ipad? ? [[20+170*2,  UIScreen.mainScreen.bounds.size.height - 205], [200*2, 120*2]] : [[170,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
+    button.font = ipad? ? UIFont.systemFontOfSize(50) :  UIFont.systemFontOfSize(20)
+   
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
 
     mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
@@ -40,16 +42,16 @@ class DrawLetterController < UIViewController
   end
 
   def ipad?
-   false # NSBundle.mainBundle.infoDictionary["UIDeviceFamily"].include?("2")
+    UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad
   end
 
   def next_letter_button
-    @search_results = []
+    @search_results.clear
     button = UIButton.buttonWithType UIButtonTypeRoundedRect
     button.setTitle "Next", forState: UIControlStateNormal
     
-    button.frame = ipad? ? [[20,  UIScreen.mainScreen.bounds.size.height - 105], [200, 120]] : [[20,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
-    button.font = ipad? ? UIFont.systemFontOfSize(30) :  UIFont.systemFontOfSize(20)
+    button.frame = ipad? ? [[20,  UIScreen.mainScreen.bounds.size.height - 205], [200*2, 120*2]] : [[20,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
+    button.font = ipad? ? UIFont.systemFontOfSize(50) :  UIFont.systemFontOfSize(20)
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
 
     mask_path = UIBezierPath.bezierPathWithRoundedRect(button.bounds,
@@ -74,7 +76,11 @@ class DrawLetterController < UIViewController
     
     reset
 
-    search_bar = UISearchBar.alloc.initWithFrame([[0,60],[UIScreen.mainScreen.bounds.size.width,44]])
+
+    search_bar = UISearchBar.alloc.initWithFrame([[0,64],[UIScreen.mainScreen.bounds.size.width,44]])
+    search_bar.backgroundColor = UIColor.redColor
+    search_bar.showsCancelButton = true
+ #   search_bar.setBarTintColor = UIColor.clearColor
     search_bar.delegate = self
 
 
@@ -123,20 +129,25 @@ class DrawLetterController < UIViewController
 
   def searchBarSearchButtonClicked(search_bar)
     @search_results.clear
-    search_bar.text = search_bar.text
     search_bar.resignFirstResponder
-    navigationItem.title = "search results for '#{search_bar.text}'"
     search_for(search_bar.text)
-
+    search_bar.text = search_bar.text
   end
 
+  def searchBarCancelButtonClicked(searchBar)
+    @search_results.clear
+    searchBar.text = searchBar.text
+    searchBar.resignFirstResponder
+   # view.reloadData
+  #  next_random_letter
+    false
+end
   def search_for(text)
     search_results_all = Hiragana::All.select{|hiragana| 
      hiragana  if hiragana.romaji.downcase.include? text.downcase
     }
     @search_results = search_results_all
-    #next_random_letter
-   # view.loadView
+
    next_random_letter
   end
 
