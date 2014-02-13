@@ -8,8 +8,9 @@ class Hiragana
   attr_accessor :letter, :thumbImage, :romaji
 
   def self.random_image(letter = [])
-     return letter.first.thumbImage if !letter.empty?
-     random_index = rand(All.count)
+         return "nop.png" if !letter.empty? && letter.first == "nope"
+     return letter.first.thumbImage if !letter.empty? && !letter.first.thumbImage.nil?
+     random_index = rand(All.count-25)
      All[random_index].thumbImage
   end
 
@@ -75,7 +76,37 @@ class Hiragana
     Hiragana.new( 'わ', "wa", "wa.png"),
     Hiragana.new( 'を', "wo", "wo.png"), 
     #n-line
-    Hiragana.new( 'ん', "n", "n.png") 
+    Hiragana.new( 'ん', "n", "n.png"),
+    #g-line
+    Hiragana.new( 'が', "ga", nil),
+    Hiragana.new( 'ぎ', "gi", nil),
+    Hiragana.new( 'ぐ', "gu", nil),
+    Hiragana.new( 'げ', "ge", nil),
+    Hiragana.new( 'ご', "go", nil),
+    #z-line
+    Hiragana.new( 'ざ', "za", nil),
+    Hiragana.new( 'じ', "ji", nil),
+    Hiragana.new( 'ず', "zu", nil),
+    Hiragana.new( 'ぜ', "ze", nil),
+    Hiragana.new( 'ぞ', "zo", nil),
+    #d-line
+    Hiragana.new( 'だ', "da", nil),
+    Hiragana.new( 'ぢ', "di", nil),
+    Hiragana.new( 'づ', "du", nil),
+    Hiragana.new( 'で', "de", nil),
+    Hiragana.new( 'ど', "do", nil),
+    #b-line
+    Hiragana.new( 'ば', "ba", nil),
+    Hiragana.new( 'び', "bi", nil),
+    Hiragana.new( 'ぶ', "bu", nil),
+    Hiragana.new( 'べ', "be", nil),
+    Hiragana.new( 'ぼ', "bo", nil),
+    #p-line
+    Hiragana.new( 'ぱ', "pa", nil),
+    Hiragana.new( 'ぴ', "pi", nil),
+    Hiragana.new( 'ぷ', "pu", nil),
+    Hiragana.new( 'ぺ', "pe", nil),
+    Hiragana.new( 'ぽ', "po", nil)
    ]
 
    Groups = [

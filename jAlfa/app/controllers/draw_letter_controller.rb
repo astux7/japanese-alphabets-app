@@ -72,13 +72,11 @@ class DrawLetterController < UIViewController
 
   def  next_random_letter
 
-   # search_bar.delegate = self
-
-    
     reset
 
 
     search_bar = UISearchBar.alloc.initWithFrame([[0,64],[UIScreen.mainScreen.bounds.size.width,44]])
+    search_bar.placeholder = "search hiragana to draw"
     search_bar.backgroundColor = UIColor.redColor
     search_bar.showsCancelButton = true
  #   search_bar.setBarTintColor = UIColor.clearColor
@@ -95,7 +93,7 @@ class DrawLetterController < UIViewController
     image_view = UIImageView.alloc.initWithImage(random_img)
     image_view.backgroundColor = UIColor.clearColor
     image_view_offset = (UIScreen.mainScreen.bounds.size.height / 480)
-    image_view.setFrame(CGRectMake(0*image_view_offset,80*image_view_offset,310*image_view_offset-20,310*image_view_offset))
+    image_view.setFrame(CGRectMake(0*image_view_offset,90*image_view_offset,305*image_view_offset-20,305*image_view_offset))
     #add subviews
     view.addSubview(image_view)
     view.addSubview(@paintView)
@@ -147,7 +145,7 @@ end
     search_results_all = Hiragana::All.select{|hiragana| 
      hiragana  if hiragana.romaji.downcase.include? text.downcase
     }
-    @search_results = search_results_all
+    @search_results = search_results_all.empty? ? ["nope"] : search_results_all
 
    next_random_letter
   end

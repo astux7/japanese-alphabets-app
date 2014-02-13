@@ -18,12 +18,16 @@ class StudyLetterController < UITableViewController
   def viewDidLoad
     super
 
-    search_bar = UISearchBar.alloc.initWithFrame([[0,0],[320,44]])
+    search_bar = ipad? ? UISearchBar.alloc.initWithFrame([[0,0],[UIScreen.mainScreen.bounds.size.width,200]]) : UISearchBar.alloc.initWithFrame([[0,0],[320,44]])
     search_bar.backgroundColor = UIColor.redColor
+    search_bar.placeholder = "search romaji"
     search_bar.showsCancelButton = true
+    #search_bar.text.font = 30
+    search_bar.sizeToFit
     search_bar.delegate = self
     view.addSubview(search_bar)
     view.tableHeaderView = search_bar
+
     @search_results = []
     view.backgroundColor = UIColor.alloc.initWithRed(0.94, green: 0.92, blue: 0.94, alpha:1.0)  
 
@@ -50,6 +54,7 @@ class StudyLetterController < UITableViewController
      hiragana if search_criteria?(hiragana, text)
     }
     view.reloadData
+
   end
 
   def search_criteria?(hiragana, text)
