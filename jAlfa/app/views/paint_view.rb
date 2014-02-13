@@ -21,7 +21,7 @@ class PaintView < UIView
 
   def touchesBegan(touches, withEvent:event)
     bp = UIBezierPath.alloc.init
-    bp.lineWidth = 12.0
+    bp.lineWidth =  UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad ? 18.0 :12.0
     color = UIColor.alloc.initWithRed(0.90, green: 0.85, blue: 0.90, alpha:1.0) 
     @paths << [bp, color]
     touch = event.touchesForView(self).anyObject

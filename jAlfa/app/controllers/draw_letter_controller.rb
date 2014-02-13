@@ -21,8 +21,9 @@ class DrawLetterController < UIViewController
     button = UIButton.buttonWithType UIButtonTypeRoundedRect
     button.setTitle "Clear", forState: UIControlStateNormal
     size = CGSizeMake(130, 50)
-    button.frame = [[170, UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] # [[320 - size.width, 440 - size.height], size]
-    button.frame = ipad? ? [[20+170*2,  UIScreen.mainScreen.bounds.size.height - 205], [200*2, 120*2]] : [[170,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
+
+    
+    button.frame = ipad? ? [[390,  UIScreen.mainScreen.bounds.size.height - 170], [340, 100]] : [[170,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
     button.font = ipad? ? UIFont.systemFontOfSize(50) :  UIFont.systemFontOfSize(20)
    
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
@@ -50,7 +51,7 @@ class DrawLetterController < UIViewController
     button = UIButton.buttonWithType UIButtonTypeRoundedRect
     button.setTitle "Next", forState: UIControlStateNormal
     
-    button.frame = ipad? ? [[20,  UIScreen.mainScreen.bounds.size.height - 205], [200*2, 120*2]] : [[20,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
+    button.frame = ipad? ? [[20,  UIScreen.mainScreen.bounds.size.height - 170], [340, 100]] : [[20,  UIScreen.mainScreen.bounds.size.height - 105], [130, 50]] 
     button.font = ipad? ? UIFont.systemFontOfSize(50) :  UIFont.systemFontOfSize(20)
     button.setTitleColor(UIColor.alloc.initWithRed(0.07,green: 0.07,blue: 0.07, alpha:1.0) , forState:UIControlStateNormal) 
 
