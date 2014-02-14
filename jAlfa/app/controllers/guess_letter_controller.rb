@@ -159,7 +159,7 @@ class GuessLetterController < UIViewController
     @scores_label.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(20)
    # @scores_label.backgroundColor = UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)
     @scores_label.backgroundColor = UIColor.clearColor
-    @scores_label.text  = " Σ= " + @scores.to_s
+    @scores_label.text  = "Total : "  + @scores.to_s
     @scores_label.textAlignment = NSTextAlignmentCenter
     @scores_label
   end
@@ -199,7 +199,7 @@ class GuessLetterController < UIViewController
   def check_answer(sender)
     button_index = sender.tag
     @quiz.game_over?(button_index) ? correct_answer : incorrect_answer(button_index)
-    @scores_label.text =  " Σ= " + @scores.to_s
+    @scores_label.text =  "Total : " + @scores.to_s
     @scores_label.textAlignment = NSTextAlignmentCenter;
 
 
