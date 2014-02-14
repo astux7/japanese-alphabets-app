@@ -134,18 +134,18 @@ class GuessLetterController < UIViewController
   end
 
   def result_label_correct
-    @label_corect = UILabel.alloc.initWithFrame([[0, (Helper.ipad? ? 80 : 70)], [100, 40]])
+    @label_corect = UILabel.alloc.initWithFrame([[0, (Helper.ipad? ? 80 : 70)], [130, 40]])
     @label_corect.textColor = UIColor.greenColor #UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
-    @label_corect.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(20)
+    @label_corect.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(15)
     #@label_corect.backgroundColor =  UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)  
     @label_corect.text  = " ✓: " + @correct.to_s  
      @label_corect.backgroundColor = UIColor.clearColor
     @label_corect
   end
   def result_label_incorrect
-    @label_incorect = UILabel.alloc.initWithFrame([[UIScreen.mainScreen.bounds.size.width-105, (Helper.ipad? ? 80 : 70)], [100, 40]])
+    @label_incorect = UILabel.alloc.initWithFrame([[UIScreen.mainScreen.bounds.size.width-135, (Helper.ipad? ? 80 : 70)], [130, 40]])
     @label_incorect.textColor = UIColor.redColor #UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
-    @label_incorect.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(20)
+    @label_incorect.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(15)
   #  @label_incorect.backgroundColor =  UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)  
     @label_incorect.text  = " ✗: " + @incorrect.to_s+" " 
     @label_incorect.textAlignment = NSTextAlignmentRight
@@ -154,9 +154,9 @@ class GuessLetterController < UIViewController
   end
 
   def result_scores_label
-    @scores_label = UILabel.alloc.initWithFrame([[100,(Helper.ipad? ? 80 : 70)], [UIScreen.mainScreen.bounds.size.width-100*2, 40]])
+    @scores_label = UILabel.alloc.initWithFrame([[100,(Helper.ipad? ? 80 : 70)], [UIScreen.mainScreen.bounds.size.width-130*2, 40]])
     @scores_label.textColor =  UIColor.blueColor # UIColor.alloc.initWithRed(0.39,green: 0.29,blue: 0.48, alpha: 1.0)  
-    @scores_label.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(20)
+    @scores_label.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(15)
    # @scores_label.backgroundColor = UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)
     @scores_label.backgroundColor = UIColor.clearColor
     @scores_label.text  = "Total : "  + @scores.to_s
