@@ -1,4 +1,4 @@
-<h1> Japanese Hiragana App for ipad/iphone jAlfa</h1>
+<h2> Japanese Hiragana App for ipad/iphone jAlfa</h2>
 ![alt tag](https://lh5.googleusercontent.com/-YzdG2XHAZrw/Uv388TZJXJI/AAAAAAAAIvo/IHDX-3wDyn4/w160-h160-no/jalfa.gif)
 <h4>Intro</h4>
  During the journey by bus/train/plain I want to read and practice japanese.
