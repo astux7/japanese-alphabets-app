@@ -20,7 +20,7 @@ Main targets of the app are
 * Challenge
 (you test your knowledge)
 
-![alt tag](https://lh4.googleusercontent.com/-qITQmC-RDUY/Uv1V_JBFHVI/AAAAAAAAIu0/IXNr3ic5bGc/w630-h360-no/test.png)
+![alt tag](https://lh4.googleusercontent.com/-Txst9tvEdKI/UwD7_DzNg0I/AAAAAAAAIwA/c3mh8t5UEFc/w630-h360-no/test+%25281%2529.png)
 * Practice
 (you practice to draw hiragana)
 
