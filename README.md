@@ -1,7 +1,7 @@
 <h2> Japanese Hiragana App for ipad/iphone jAlfa</h2>
 ![alt tag](https://lh5.googleusercontent.com/-YzdG2XHAZrw/Uv388TZJXJI/AAAAAAAAIvo/IHDX-3wDyn4/w160-h160-no/jalfa.gif)
 <h4>Intro</h4>
- During the journey by bus/train/plain I want to read and practice japanese.
+ During the journey by bus/train/plaine I want to read and practice japanese.
 Here I found a solution of creating my own App for learning japanese alphabet: hiragana.
 
 <h4>Inspiration and used tutorials during creation </h4>
@@ -20,7 +20,7 @@ Main targets of the app are
 * Challenge
 (you test your knowledge)
 
-![alt tag](https://lh4.googleusercontent.com/-qITQmC-RDUY/Uv1V_JBFHVI/AAAAAAAAIu0/IXNr3ic5bGc/w630-h360-no/test.png)
+![alt tag](https://lh4.googleusercontent.com/-Txst9tvEdKI/UwD7_DzNg0I/AAAAAAAAIwA/c3mh8t5UEFc/w630-h360-no/test+%25281%2529.png)
 * Practice
 (you practice to draw hiragana)
 
