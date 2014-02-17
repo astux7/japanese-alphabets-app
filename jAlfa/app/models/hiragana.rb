@@ -91,8 +91,8 @@ class Hiragana
     Hiragana.new( 'ぞ', "zo", "zo.png"),
     #d-line
     Hiragana.new( 'だ', "da", "da.png"),
-    Hiragana.new( 'ぢ', "di", "di.png"),
-    Hiragana.new( 'づ', "du", "du.png"),
+  #  Hiragana.new( 'ぢ', "ji", "di.png"),
+ #   Hiragana.new( 'づ', "zu", "du.png"),
     Hiragana.new( 'で', "de", "de.png"),
     Hiragana.new( 'ど', "do", "do.png"),
     #b-line
@@ -122,11 +122,11 @@ class Hiragana
     ["W-line", "    わ,  を"              ,"         Wa,         Wo"],
     ["N-line", "    ん"                   ,"         N"],
     ["G-line", "    が,  ぎ,  ぐ,  げ,  ご","         Ga,         Gi,         Gu,        Ge,         Go"],
-    ["Z-line", "    ざ,  じ,  ず,  ぜ,  ぞ","         Za,         Zi,         Zu,        Ze,         Zo"],
-    ["D-line", "    だ,  ぢ,  づ,  で,  ど","         Da,         Di,         Du,        De,         Do"],
+    ["Z-line", "    ざ,  じ,  ず,  ぜ,  ぞ","         Za,         Ji,         Zu,        Ze,         Zo"],
+    ["D-line", "    だ,  で,  ど"         ,"         Da,         De,         Do"],
+    #   ["D-line", "    だ,  ぢ,  づ,  で,  ど","         Da,         Ji,         Zu,        De,         Do"],
     ["B-line", "    ば,  び,  ぶ,  べ,  ぼ","         Ba,         Bi,         Bu,        Be,         Bo"], 
     ["P-line", "    ぱ,  ぴ,  ぷ,  ぺ,  ぽ","         Pa,         Pi,         Pu,        Pe,         Po"],
-    ["", "",""],
     ["", "",""]
    ]
 

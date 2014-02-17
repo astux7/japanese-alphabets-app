@@ -7,12 +7,17 @@ Motion::Project::App.setup do |app|
   app.name = 'jAlfa'
   app.frameworks +=['AddressBook']
   app.device_family = [:iphone, :ipad]
-  app.icons = ['icon.png', 'icon@2x.png']
-  app.provisioning_profile = '/Users/astux7/Downloads/Test.mobileprovision' 
-  app.codesign_certificate = 'Asta Bevainyte'
-  app.prerendered_icon = true
+  app.icons = ['Icon.png', 'Icon@2x.png', 'Icon-76@2x.png', 'touch-icon-ipad.png', 'touch-icon-iphone.png', 'Icon-Small-100x.png']
+#  app.provisioning_profile = '/Users/astux7/Downloads/test.mobileprovision' 
+#  app.provisioning_profile = '/Users/astux7/Downloads/test.mobileprovision' 
+  app.provisioning_profile = '/Users/astux7/Downloads/online.mobileprovision' 
+  app.codesign_certificate = 'iPhone Distribution: Asta Bevainyte'
+  app.identifier = "com.basta.jalfa"
+  app.short_version = '1.0'
+  app.libs << "-fobjc-arc"
+  #app.prerendered_icon = true
   app.interface_orientations = [:portrait]
-  app.version = "1.0.x"
+  app.version = "1.0"
 
 end
 

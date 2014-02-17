@@ -26,7 +26,7 @@ class GuessLetterController < UIViewController
  # initalize the game
   def new_game
     @quiz = Quiz.new
-    @scores = @quiz.scores
+  #  @scores = @quiz.scores
     @correct = @quiz.correct
     @incorrect = @quiz.incorrect
     @buttons = []
@@ -61,7 +61,7 @@ class GuessLetterController < UIViewController
     view.addSubview results_label
     view.addSubview result_label_incorrect
      view.addSubview result_label_correct
-     view.addSubview result_scores_label
+   #  view.addSubview result_scores_label
     view.addSubview quess_label
   end
   
@@ -134,7 +134,7 @@ class GuessLetterController < UIViewController
   end
 
   def result_label_correct
-    @label_corect = UILabel.alloc.initWithFrame([[0, (Helper.ipad? ? 80 : 70)], [130, 40]])
+    @label_corect = UILabel.alloc.initWithFrame([[0, (Helper.ipad? ? 80 : 70)], [UIScreen.mainScreen.bounds.size.width/2, 40]])
     @label_corect.textColor = UIColor.greenColor #UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
     @label_corect.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(15)
     #@label_corect.backgroundColor =  UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)  
@@ -143,7 +143,7 @@ class GuessLetterController < UIViewController
     @label_corect
   end
   def result_label_incorrect
-    @label_incorect = UILabel.alloc.initWithFrame([[UIScreen.mainScreen.bounds.size.width-135, (Helper.ipad? ? 80 : 70)], [130, 40]])
+    @label_incorect = UILabel.alloc.initWithFrame([[UIScreen.mainScreen.bounds.size.width/2, (Helper.ipad? ? 80 : 70)], [(UIScreen.mainScreen.bounds.size.width/2)-6, 40]])
     @label_incorect.textColor = UIColor.redColor #UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
     @label_incorect.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(15)
   #  @label_incorect.backgroundColor =  UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)  
@@ -153,16 +153,16 @@ class GuessLetterController < UIViewController
     @label_incorect
   end
 
-  def result_scores_label
-    @scores_label = UILabel.alloc.initWithFrame([[100,(Helper.ipad? ? 80 : 70)], [UIScreen.mainScreen.bounds.size.width-130*2, 40]])
-    @scores_label.textColor =  UIColor.blueColor # UIColor.alloc.initWithRed(0.39,green: 0.29,blue: 0.48, alpha: 1.0)  
-    @scores_label.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(15)
-   # @scores_label.backgroundColor = UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)
-    @scores_label.backgroundColor = UIColor.clearColor
-    @scores_label.text  = "Total : "  + @scores.to_s
-    @scores_label.textAlignment = NSTextAlignmentCenter
-    @scores_label
-  end
+  # def result_scores_label
+  #   @scores_label = UILabel.alloc.initWithFrame([[100,(Helper.ipad? ? 80 : 70)], [UIScreen.mainScreen.bounds.size.width-130*2, 40]])
+  #   @scores_label.textColor =  UIColor.blueColor # UIColor.alloc.initWithRed(0.39,green: 0.29,blue: 0.48, alpha: 1.0)  
+  #   @scores_label.font = Helper.ipad? ? UIFont.systemFontOfSize(40) : UIFont.systemFontOfSize(15)
+  #  # @scores_label.backgroundColor = UIColor.alloc.initWithRed(0.67,green: 0.53,blue: 0.6, alpha: 0.75)
+  #   @scores_label.backgroundColor = UIColor.clearColor
+  #   @scores_label.text  = "Total: "  + @scores.to_s
+  #   @scores_label.textAlignment = NSTextAlignmentCenter
+  #   @scores_label
+  # end
 
   def results_label
     if Helper.ipad?
@@ -188,8 +188,8 @@ class GuessLetterController < UIViewController
          label.font = UIFont.systemFontOfSize(50)
     end
     label.textColor =  UIColor.whiteColor 
-    label.layer.cornerRadius = Helper.ipad? ? 100.0 : 50.0;
-    label.textAlignment = NSTextAlignmentCenter;
+    label.layer.cornerRadius = Helper.ipad? ? 100.0 : 50.0
+    label.textAlignment = NSTextAlignmentCenter
     label.backgroundColor = UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
 
     label.text = ""
@@ -199,8 +199,8 @@ class GuessLetterController < UIViewController
   def check_answer(sender)
     button_index = sender.tag
     @quiz.game_over?(button_index) ? correct_answer : incorrect_answer(button_index)
-    @scores_label.text =  "Total : " + @scores.to_s
-    @scores_label.textAlignment = NSTextAlignmentCenter;
+  #  @scores_label.text =  "Total: " + @scores.to_s
+#    @scores_label.textAlignment = NSTextAlignmentCenter
 
 
   end
@@ -209,8 +209,8 @@ class GuessLetterController < UIViewController
     new_question
     @label_quess.text = "That's correct!"
     @label_quess.textColor = UIColor.blueColor 
-    return @scores = 0 if @scores > 10000 
-    @scores += 1
+    # return @scores = 0 if @scores > 10000 
+    # @scores += 1
     return @correct = 0 if @correct > 10000
     @correct +=1
     @label_corect.text  = " ✓: " + @correct.to_s 
@@ -221,8 +221,8 @@ class GuessLetterController < UIViewController
     @label_quess.text = "Guess once more!"
     @label_quess.textColor = UIColor.alloc.initWithRed(0.8,green: 0.6,blue: 0.73, alpha:1.0) 
     @buttons[button_index].removeFromSuperview
-    return @scores = 0 if @scores < -10000
-    @scores -= 1
+    # return @scores = 0 if @scores < -10000
+    # @scores -= 1
     return @incorrect = 0 if @incorrect > 10000
     @incorrect +=1
     @label_incorect.text  = " ✗: " + @incorrect.to_s+" " 

@@ -61,8 +61,11 @@ class StudyLetterController < UITableViewController
   end
 
   def search_criteria?(hiragana, text)
-    return true if hiragana[1].strip.downcase.include? text.downcase
-    return true if hiragana[2].strip.downcase.include? text.downcase
+    hiragana[2].downcase.split(",").to_a.each{|char|
+      return true if char.strip.start_with? text.downcase
+    }
+  #  return true if hiragana[1].strip.downcase.split(", ").selecstart? text.downcase
+  #  return true if hiragana[2].strip.downcase.include? text.downcase
     false
  end
 
