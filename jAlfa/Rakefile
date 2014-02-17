@@ -9,8 +9,8 @@ Motion::Project::App.setup do |app|
   app.device_family = [:iphone, :ipad]
   app.icons = ['Icon.png', 'Icon@2x.png', 'Icon-76@2x.png', 'touch-icon-ipad.png', 'touch-icon-iphone.png', 'Icon-Small-100x.png']
 #  app.provisioning_profile = '/Users/astux7/Downloads/test.mobileprovision' 
-#  app.provisioning_profile = '/Users/astux7/Downloads/test.mobileprovision' 
-  app.provisioning_profile = '/Users/astux7/Downloads/online.mobileprovision' 
+  app.provisioning_profile = '/Users/astux7/Downloads/test.mobileprovision' 
+ # app.provisioning_profile = '/Users/astux7/Downloads/online.mobileprovision' 
   app.codesign_certificate = 'iPhone Distribution: Asta Bevainyte'
   app.identifier = "com.basta.jalfa"
   app.short_version = '1.0'
