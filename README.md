@@ -28,8 +28,11 @@ Main targets of the app are
 
 <h4>About the jAlfa App </h4>
 * 46 Monographs and 25 Diacritics hiragana to draw
+
 * 46 Monographs and 25 Diacritics hiragana to study
+
 * 46 Monographs and 25 Diacritics hiragana for test your knowledge
+
 * suitable for iPad and iPhone
 
 (C) 2014 Asta B. 
