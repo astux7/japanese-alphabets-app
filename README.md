@@ -27,6 +27,7 @@ Main targets of the app are
 ![alt tag](https://lh5.googleusercontent.com/-BbKcvvsgIqQ/Uv1WEYZkxvI/AAAAAAAAIvE/AJfKcChJcJA/w630-h387-no/draw.png)
 
 <h4>About the jAlfa App </h4>
+
 * 46 Monographs and 25 Diacritics hiragana to draw
 
 * 46 Monographs and 25 Diacritics hiragana to study
